@@ -40,6 +40,19 @@ if (toggle && mobileMenu) {
   });
 }
 
+// ── Search Tabs ──────────────────────────────────────────
+document.querySelectorAll('.search-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const searchBtn = document.querySelector('.search-btn .btn');
+    if (searchBtn) {
+      const type = tab.dataset.type || '';
+      searchBtn.href = 'tours.html' + (type ? '?type=' + type : '');
+    }
+  });
+});
+
 // ── Tour Tabs ────────────────────────────────────────────
 document.querySelectorAll('.tour-tab').forEach(tab => {
   tab.addEventListener('click', () => {

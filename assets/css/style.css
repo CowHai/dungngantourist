@@ -1,4 +1,4 @@
-/* DN Travel — Core Styles */
+/* D9 Travel — Core Styles */
 @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
 
 :root {
@@ -309,10 +309,51 @@ input, select, textarea { font-family: inherit; }
   background: var(--white);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-lg);
-  padding: 20px 24px;
+  overflow: hidden;
+}
+/* Search tabs */
+.search-tabs {
+  display: flex;
+  border-bottom: 1.5px solid var(--gray-100);
+  padding: 0 24px;
+  gap: 4px;
+}
+.search-tab {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 14px 18px;
+  font-family: var(--font);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--gray-500);
+  border-bottom: 2.5px solid transparent;
+  margin-bottom: -1.5px;
+  transition: color 0.2s, border-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+}
+.search-tab:hover { color: var(--primary); }
+.search-tab.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+  font-weight: 600;
+}
+/* Search fields row */
+.search-fields {
   display: flex;
   gap: 12px;
   align-items: flex-end;
+  padding: 20px 24px;
+}
+.search-divider {
+  width: 1px;
+  height: 44px;
+  background: var(--gray-200);
+  flex-shrink: 0;
+  align-self: flex-end;
 }
 .search-field {
   flex: 1;
@@ -375,15 +416,15 @@ input, select, textarea { font-family: inherit; }
   gap: 14px;
 }
 .feature-icon {
-  width: 46px;
-  height: 46px;
-  background: var(--primary-bg);
+  width: 48px;
+  height: 48px;
+  background: rgba(244,162,97,0.12);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary);
-  font-size: 20px;
+  color: var(--accent);
+  font-size: 22px;
   flex-shrink: 0;
 }
 .feature-text h4 { font-size: 15px; font-weight: 700; color: var(--gray-900); }
@@ -1158,7 +1199,10 @@ input, select, textarea { font-family: inherit; }
   .navbar-nav { display: none; }
   .navbar-toggle { display: flex; }
   .hero-content { padding-bottom: 200px; }
-  .search-card { flex-direction: column; }
+  .search-tabs { padding: 0 12px; overflow-x: auto; }
+  .search-tab { padding: 12px 12px; font-size: 13px; }
+  .search-fields { flex-direction: column; padding: 16px 12px; }
+  .search-divider { display: none; }
   .search-field { width: 100%; }
   .tours-layout { flex-direction: column; }
   .sidebar { width: 100%; }

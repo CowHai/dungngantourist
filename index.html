@@ -56,7 +56,7 @@
     </ul>
 
     <div class="navbar-cta">
-      <a href="contact.html" class="btn btn-outline btn-sm">Liên hệ với tôi</a>
+      <a href="contact.html" class="btn btn-primary btn-sm">Liên hệ ngay</a>
     </div>
 
     <button class="navbar-toggle" aria-label="Mở menu" aria-expanded="false">
@@ -103,56 +103,71 @@
   <div class="search-float">
     <div class="container">
       <div class="search-card">
-        <div class="search-field">
-          <label for="dest-input"><i class="fas fa-map-marker-alt" style="color:var(--primary);margin-right:4px;"></i> Điểm đến</label>
-          <div class="input-icon">
-            <i class="fas fa-map-marker-alt icon"></i>
-            <input type="text" id="dest-input" placeholder="Bạn muốn đi đâu?" list="dest-list" />
-            <datalist id="dest-list">
-              <option value="Hà Long Bay, Quảng Ninh" />
-              <option value="Sa Pa, Lào Cai" />
-              <option value="Hội An, Quảng Nam" />
-              <option value="Đà Lạt, Lâm Đồng" />
-              <option value="Phú Quốc, Kiên Giang" />
-              <option value="Mộc Châu, Sơn La" />
-              <option value="Nha Trang, Khánh Hòa" />
-              <option value="Đà Nẵng" />
-            </datalist>
+        <!-- Tabs -->
+        <div class="search-tabs">
+          <button class="search-tab active" data-type=""><i class="fas fa-map-marked-alt"></i> Tour trong nước</button>
+          <button class="search-tab" data-type="international"><i class="fas fa-globe-asia"></i> Tour nước ngoài</button>
+          <button class="search-tab" data-type="combo"><i class="fas fa-hotel"></i> Combo &amp; KS</button>
+        </div>
+        <!-- Fields row -->
+        <div class="search-fields">
+          <div class="search-field">
+            <label for="dest-input"><i class="fas fa-map-marker-alt"></i> Điểm đến</label>
+            <div class="input-icon">
+              <i class="fas fa-map-marker-alt icon"></i>
+              <input type="text" id="dest-input" placeholder="Bạn muốn đi đâu?" list="dest-list" />
+              <datalist id="dest-list">
+                <option value="Hạ Long Bay, Quảng Ninh" />
+                <option value="Sa Pa, Lào Cai" />
+                <option value="Hội An, Quảng Nam" />
+                <option value="Đà Lạt, Lâm Đồng" />
+                <option value="Phú Quốc, Kiên Giang" />
+                <option value="Mộc Châu, Sơn La" />
+                <option value="Nha Trang, Khánh Hòa" />
+                <option value="Đà Nẵng" />
+              </datalist>
+            </div>
           </div>
-        </div>
 
-        <div class="search-field">
-          <label for="date-from"><i class="fas fa-calendar-alt" style="color:var(--primary);margin-right:4px;"></i> Ngày đi</label>
-          <div class="input-icon">
-            <i class="fas fa-calendar icon"></i>
-            <input type="date" id="date-from" />
+          <div class="search-divider"></div>
+
+          <div class="search-field">
+            <label for="date-from"><i class="fas fa-calendar-alt"></i> Ngày đi</label>
+            <div class="input-icon">
+              <i class="fas fa-calendar icon"></i>
+              <input type="date" id="date-from" />
+            </div>
           </div>
-        </div>
 
-        <div class="search-field">
-          <label for="date-to"><i class="fas fa-calendar-check" style="color:var(--primary);margin-right:4px;"></i> Ngày về</label>
-          <div class="input-icon">
-            <i class="fas fa-calendar icon"></i>
-            <input type="date" id="date-to" />
+          <div class="search-divider"></div>
+
+          <div class="search-field">
+            <label for="date-to"><i class="fas fa-calendar-check"></i> Ngày về</label>
+            <div class="input-icon">
+              <i class="fas fa-calendar icon"></i>
+              <input type="date" id="date-to" />
+            </div>
           </div>
-        </div>
 
-        <div class="search-field" style="max-width:140px;">
-          <label><i class="fas fa-users" style="color:var(--primary);margin-right:4px;"></i> Số khách</label>
-          <select>
-            <option>1 người</option>
-            <option selected>2 người</option>
-            <option>3 người</option>
-            <option>4 người</option>
-            <option>5–10 người</option>
-            <option>Đoàn &gt;10</option>
-          </select>
-        </div>
+          <div class="search-divider"></div>
 
-        <div class="search-btn">
-          <a href="tours.html" class="btn btn-primary btn-lg">
-            <i class="fas fa-search"></i> Tìm tour
-          </a>
+          <div class="search-field" style="max-width:150px;">
+            <label><i class="fas fa-users"></i> Số khách</label>
+            <select>
+              <option>1 người</option>
+              <option selected>2 người</option>
+              <option>3 người</option>
+              <option>4 người</option>
+              <option>5–10 người</option>
+              <option>Đoàn &gt;10</option>
+            </select>
+          </div>
+
+          <div class="search-btn">
+            <a href="tours.html" class="btn btn-primary">
+              <i class="fas fa-search"></i> Tìm tour
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -568,7 +583,7 @@
         </div>
         <div class="footer-contact-item">
           <i class="fas fa-envelope ico"></i>
-          <span>info@DNtravel.vn</span>
+          <span>info@d9travel.vn</span>
         </div>
         <div class="footer-contact-item">
           <i class="fas fa-clock ico"></i>
