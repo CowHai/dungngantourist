@@ -1,4 +1,4 @@
-/* D9 Travel — Main JS */
+/* DN Travel — Main JS */
 
 // ── Navbar ───────────────────────────────────────────────
 const navbar = document.querySelector('.navbar');
