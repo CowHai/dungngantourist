@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đặt tour — DN Travel</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .form-section { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-xl); padding:28px; margin-bottom:20px; }
+    .form-section-title { font-size:17px; font-weight:700; color:var(--gray-900); margin-bottom:20px; padding-bottom:14px; border-bottom:1px solid var(--gray-100); display:flex; align-items:center; gap:10px; }
+    .form-section-title i { color:var(--primary); }
+    .passenger-block { background:var(--gray-50); border-radius:var(--radius-lg); padding:20px; margin-bottom:16px; }
+    .passenger-block h4 { font-size:14px; font-weight:700; color:var(--gray-700); margin-bottom:16px; }
+    .payment-option { display:flex; align-items:center; gap:14px; border:2px solid var(--gray-200); border-radius:var(--radius-lg); padding:16px; cursor:pointer; transition:var(--transition); margin-bottom:10px; }
+    .payment-option:hover { border-color:var(--primary-pale); }
+    .payment-option.selected { border-color:var(--primary); background:var(--primary-bg); }
+    .payment-option input { accent-color:var(--primary); width:18px; height:18px; }
+    .payment-option-info h4 { font-size:14px; font-weight:700; color:var(--gray-900); }
+    .payment-option-info p { font-size:13px; color:var(--gray-500); margin-top:2px; }
+    .payment-logos { margin-left:auto; display:flex; gap:6px; }
+    .payment-logos img { height:24px; border-radius:4px; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon"><i class="fas fa-compass"></i></div>
+      <span class="logo-text">DN<span>Travel</span></span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link">Trang chủ</a></li>
+      <li><a href="tours.html" class="nav-link active">Tour trong nước</a></li>
+      <li><a href="tours.html?type=international" class="nav-link">Tour nước ngoài</a></li>
+      <li><a href="tours.html?type=combo" class="nav-link">Combo &amp; KS</a></li>
+      <li><a href="about.html" class="nav-link">Về chúng tôi</a></li>
+    </ul>
+    <div class="navbar-cta"><a href="contact.html" class="btn btn-primary btn-sm">Liên hệ ngay</a></div>
+    <button class="navbar-toggle" aria-label="Mở menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="nav-link">Trang chủ</a>
+  <a href="tours.html" class="nav-link active">Tour trong nước</a>
+  <a href="about.html" class="nav-link">Về chúng tôi</a>
+  <a href="contact.html" class="nav-link">Liên hệ</a>
+</div>
+
+<div class="page-header">
+  <div class="container page-header-content">
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span class="sep"><i class="fas fa-chevron-right" style="font-size:10px;"></i></span>
+      <a href="tour-detail.html">Chi tiết tour</a>
+      <span class="sep"><i class="fas fa-chevron-right" style="font-size:10px;"></i></span>
+      <span class="current">Đặt tour</span>
+    </div>
+    <h1>Đặt tour</h1>
+    <p>Điền thông tin để hoàn tất đặt chỗ của bạn</p>
+  </div>
+</div>
+
+<section class="section-sm">
+  <div class="container">
+
+    <!-- Steps -->
+    <div class="booking-steps" style="margin-bottom:32px;">
+      <div class="step-item active">
+        <div class="step-num">1</div>
+        <div class="step-text"><h4>Thông tin hành khách</h4><p>Nhập thông tin cá nhân</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div class="step-text"><h4>Thanh toán</h4><p>Chọn phương thức</p></div>
+      </div>
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div class="step-text"><h4>Xác nhận</h4><p>Hoàn tất đặt tour</p></div>
+      </div>
+    </div>
+
+    <div class="booking-layout">
+
+      <!-- LEFT FORM -->
+      <div>
+
+        <!-- Step 1: Passenger info -->
+        <div class="booking-step">
+
+          <div class="form-section">
+            <div class="form-section-title"><i class="fas fa-user"></i> Thông tin liên hệ</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Họ và tên <span style="color:#EF4444;">*</span></label>
+                <input type="text" placeholder="Nguyễn Văn A" required />
+              </div>
+              <div class="form-group">
+                <label>Số điện thoại <span style="color:#EF4444;">*</span></label>
+                <input type="tel" placeholder="0909 xxx xxx" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email <span style="color:#EF4444;">*</span></label>
+                <input type="email" placeholder="email@example.com" required />
+              </div>
+              <div class="form-group">
+                <label>Địa chỉ</label>
+                <input type="text" placeholder="TP. Hồ Chí Minh" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Yêu cầu đặc biệt</label>
+              <textarea placeholder="Chế độ ăn đặc biệt, phòng riêng, dịch vụ thêm..."></textarea>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title"><i class="fas fa-users"></i> Thông tin hành khách</div>
+
+            <div class="passenger-block">
+              <h4><i class="fas fa-user-circle" style="color:var(--primary);margin-right:6px;"></i>Người lớn 1 (Trưởng đoàn)</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Họ tên <span style="color:#EF4444;">*</span></label>
+                  <input type="text" placeholder="Họ và tên đầy đủ" required />
+                </div>
+                <div class="form-group">
+                  <label>Ngày sinh <span style="color:#EF4444;">*</span></label>
+                  <input type="date" required />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Giới tính</label>
+                  <select>
+                    <option>Nam</option>
+                    <option>Nữ</option>
+                    <option>Khác</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>CMND / CCCD</label>
+                  <input type="text" placeholder="Số CMND / CCCD" />
+                </div>
+              </div>
+            </div>
+
+            <div class="passenger-block">
+              <h4><i class="fas fa-user-circle" style="color:var(--primary);margin-right:6px;"></i>Người lớn 2</h4>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Họ tên</label>
+                  <input type="text" placeholder="Họ và tên đầy đủ" />
+                </div>
+                <div class="form-group">
+                  <label>Ngày sinh</label>
+                  <input type="date" />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Giới tính</label>
+                  <select><option>Nam</option><option>Nữ</option><option>Khác</option></select>
+                </div>
+                <div class="form-group">
+                  <label>CMND / CCCD</label>
+                  <input type="text" placeholder="Số CMND / CCCD" />
+                </div>
+              </div>
+            </div>
+
+            <button class="btn btn-outline btn-sm" style="margin-top:4px;">
+              <i class="fas fa-plus"></i> Thêm hành khách
+            </button>
+          </div>
+
+          <div class="form-section">
+            <div class="form-section-title"><i class="fas fa-credit-card"></i> Phương thức thanh toán</div>
+
+            <div class="payment-option selected" onclick="selectPayment(this)">
+              <input type="radio" name="payment" checked />
+              <div class="payment-option-info">
+                <h4>Chuyển khoản ngân hàng</h4>
+                <p>Chuyển khoản đặt cọc 30%, còn lại thanh toán trước 7 ngày</p>
+              </div>
+              <div class="payment-logos" style="margin-left:auto;">
+                <span style="font-size:11px;background:var(--primary);color:white;padding:4px 8px;border-radius:4px;font-weight:700;">Bank</span>
+              </div>
+            </div>
+
+            <div class="payment-option" onclick="selectPayment(this)">
+              <input type="radio" name="payment" />
+              <div class="payment-option-info">
+                <h4>Thanh toán online (MoMo / ZaloPay)</h4>
+                <p>Thanh toán toàn bộ ngay lập tức qua ví điện tử</p>
+              </div>
+              <div class="payment-logos" style="margin-left:auto;">
+                <span style="font-size:11px;background:#ae2070;color:white;padding:4px 8px;border-radius:4px;font-weight:700;">MoMo</span>
+              </div>
+            </div>
+
+            <div class="payment-option" onclick="selectPayment(this)">
+              <input type="radio" name="payment" />
+              <div class="payment-option-info">
+                <h4>Thẻ tín dụng / ghi nợ</h4>
+                <p>Visa, Mastercard, JCB — Thanh toán an toàn qua cổng 3D Secure</p>
+              </div>
+              <div class="payment-logos" style="margin-left:auto;">
+                <span style="font-size:11px;background:#1a1f71;color:white;padding:4px 8px;border-radius:4px;font-weight:700;">VISA</span>
+              </div>
+            </div>
+
+            <div class="payment-option" onclick="selectPayment(this)">
+              <input type="radio" name="payment" />
+              <div class="payment-option-info">
+                <h4>Thanh toán tại văn phòng</h4>
+                <p>Đến trực tiếp văn phòng DN Travel để thanh toán</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;">
+            <input type="checkbox" id="agree" style="margin-top:3px;accent-color:var(--primary);" />
+            <label for="agree" style="font-size:14px;color:var(--gray-600);">Tôi đã đọc và đồng ý với <a href="#" style="color:var(--primary);font-weight:600;">Điều khoản dịch vụ</a> và <a href="#" style="color:var(--primary);font-weight:600;">Chính sách bảo mật</a> của DN Travel.</label>
+          </div>
+
+          <button class="btn btn-primary btn-lg step-next" style="width:100%;justify-content:center;">
+            Tiếp tục <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+
+        <!-- Step 2: Confirm (hidden by default) -->
+        <div class="booking-step" style="display:none;">
+          <div class="form-section">
+            <div class="form-section-title"><i class="fas fa-check-circle"></i> Xác nhận thông tin đặt tour</div>
+            <p style="font-size:14px;color:var(--gray-600);margin-bottom:16px;">Vui lòng kiểm tra lại thông tin trước khi hoàn tất đặt tour.</p>
+            <div style="background:var(--primary-bg);border-radius:var(--radius-lg);padding:16px;margin-bottom:16px;">
+              <div style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:8px;">Vịnh Hạ Long — Du thuyền 5 sao</div>
+              <div style="font-size:14px;color:var(--gray-600);">Khởi hành: 20/06/2025 · 2 người lớn · 2N1Đ</div>
+            </div>
+            <div style="display:flex;gap:10px;">
+              <button class="btn btn-outline step-prev" style="flex:1;justify-content:center;"><i class="fas fa-arrow-left"></i> Quay lại</button>
+              <a href="#" class="btn btn-primary" style="flex:2;justify-content:center;" onclick="showSuccess()"><i class="fas fa-check"></i> Hoàn tất đặt tour</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT SUMMARY -->
+      <div>
+        <div class="booking-summary-card">
+          <div class="booking-summary-img">
+            <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&q=75" alt="Tour" />
+          </div>
+          <div class="booking-summary-body">
+            <h3>Vịnh Hạ Long — Du thuyền 5 sao sang trọng</h3>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:var(--gray-600);">
+              <div style="display:flex;gap:8px;"><i class="fas fa-calendar" style="color:var(--primary);margin-top:2px;flex-shrink:0;"></i><span>Khởi hành: 20/06/2025</span></div>
+              <div style="display:flex;gap:8px;"><i class="fas fa-clock" style="color:var(--primary);margin-top:2px;flex-shrink:0;"></i><span>2 ngày 1 đêm</span></div>
+              <div style="display:flex;gap:8px;"><i class="fas fa-users" style="color:var(--primary);margin-top:2px;flex-shrink:0;"></i><span>2 người lớn</span></div>
+              <div style="display:flex;gap:8px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);margin-top:2px;flex-shrink:0;"></i><span>Hạ Long, Quảng Ninh</span></div>
+            </div>
+
+            <hr class="divider" />
+
+            <div class="booking-row"><span>2 người lớn × 4.200.000đ</span><span>8.400.000đ</span></div>
+            <div class="booking-row"><span>Phí dịch vụ</span><span style="color:var(--primary);">Miễn phí</span></div>
+            <div class="booking-total"><span>Tổng cộng</span><span>8.400.000đ</span></div>
+            <div style="margin-top:12px;font-size:13px;color:var(--gray-500);">
+              <i class="fas fa-info-circle" style="color:var(--primary);"></i>
+              Đặt cọc 30% = <strong style="color:var(--gray-900);">2.520.000đ</strong>
+            </div>
+
+            <hr class="divider" />
+
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="font-size:13px;color:var(--gray-500);display:flex;align-items:center;gap:6px;">
+                <i class="fas fa-shield-alt" style="color:var(--primary);"></i> Thanh toán bảo mật 100%
+              </div>
+              <div style="font-size:13px;color:var(--gray-500);display:flex;align-items:center;gap:6px;">
+                <i class="fas fa-undo" style="color:var(--primary);"></i> Hoàn hủy theo chính sách
+              </div>
+              <div style="font-size:13px;color:var(--gray-500);display:flex;align-items:center;gap:6px;">
+                <i class="fas fa-headset" style="color:var(--primary);"></i> Hỗ trợ 24/7
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Promo code -->
+        <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:var(--radius-lg);padding:18px;margin-top:16px;">
+          <div style="font-size:14px;font-weight:700;color:var(--gray-900);margin-bottom:10px;"><i class="fas fa-tag" style="color:var(--primary);margin-right:6px;"></i>Mã giảm giá</div>
+          <div style="display:flex;gap:8px;">
+            <input type="text" placeholder="Nhập mã khuyến mãi" style="flex:1;border:1.5px solid var(--gray-200);border-radius:var(--radius);padding:9px 12px;font-size:14px;outline:none;" />
+            <button class="btn btn-outline btn-sm">Áp dụng</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-text">DN<span>Travel</span></div><p>DN Travel — Hành trình trọn vẹn, kỷ niệm đáng nhớ.</p><div class="footer-socials"><a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a></div></div>
+      <div class="footer-col"><h4>Tour du lịch</h4><ul><li><a href="tours.html">Tour trong nước</a></li><li><a href="departure.html">Lịch khởi hành</a></li></ul></div>
+      <div class="footer-col"><h4>Hỗ trợ</h4><ul><li><a href="contact.html">Liên hệ</a></li><li><a href="#">Chính sách hủy tour</a></li><li><a href="#">FAQ</a></li></ul></div>
+      <div class="footer-col"><h4>Liên hệ</h4><div class="footer-contact-item"><i class="fas fa-phone ico"></i><span>1900 1234</span></div><div class="footer-contact-item"><i class="fas fa-envelope ico"></i><span>info@d9travel.vn</span></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container" style="display:flex;width:100%;justify-content:space-between;"><span>© 2025 DN Travel.</span></div></div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+function selectPayment(el) {
+  document.querySelectorAll('.payment-option').forEach(o => { o.classList.remove('selected'); o.querySelector('input').checked = false; });
+  el.classList.add('selected');
+  el.querySelector('input').checked = true;
+}
+function showSuccess() {
+  document.querySelector('.booking-layout').innerHTML = `
+    <div style="text-align:center;padding:60px 20px;max-width:500px;margin:0 auto;">
+      <div style="width:80px;height:80px;background:var(--primary-bg);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-size:36px;color:var(--primary);"><i class="fas fa-check"></i></div>
+      <h2 style="font-size:26px;font-weight:800;color:var(--gray-900);margin-bottom:10px;">Đặt tour thành công!</h2>
+      <p style="color:var(--gray-500);margin-bottom:24px;">Cảm ơn bạn đã đặt tour tại DN Travel. Chúng tôi sẽ liên hệ xác nhận trong vòng 30 phút.</p>
+      <div style="background:var(--gray-50);border-radius:var(--radius-lg);padding:16px;margin-bottom:24px;font-size:14px;color:var(--gray-600);">Mã đặt tour: <strong style="color:var(--primary);font-size:18px;">D9-2025-04821</strong></div>
+      <a href="index.html" class="btn btn-primary btn-lg">Về trang chủ</a>
+    </div>
+  `;
+}
+</script>
+</body>
+</html>

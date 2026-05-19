@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cẩm nang du lịch — DN Travel</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .blog-layout { display: grid; grid-template-columns: 1fr 300px; gap: 32px; align-items: start; }
+    .blog-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .blog-sidebar-widget { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-lg); padding:20px; margin-bottom:20px; }
+    .blog-sidebar-widget h3 { font-size:15px; font-weight:700; color:var(--gray-900); margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--gray-100); }
+    .category-list { display:flex; flex-direction:column; gap:4px; }
+    .category-item { display:flex; align-items:center; justify-content:space-between; padding:7px 10px; border-radius:var(--radius); font-size:14px; color:var(--gray-700); cursor:pointer; transition:var(--transition); }
+    .category-item:hover, .category-item.active { background:var(--primary-bg); color:var(--primary); }
+    .category-item .count { font-size:12px; background:var(--gray-100); padding:2px 7px; border-radius:12px; color:var(--gray-500); }
+    .category-item.active .count { background:var(--primary); color:white; }
+    .popular-post { display:flex; gap:12px; padding:10px 0; border-bottom:1px solid var(--gray-100); }
+    .popular-post:last-child { border-bottom:none; padding-bottom:0; }
+    .popular-post img { width:68px; height:68px; object-fit:cover; border-radius:var(--radius); flex-shrink:0; }
+    .popular-post-info h4 { font-size:13px; font-weight:600; color:var(--gray-900); line-height:1.4; }
+    .popular-post-info h4 a:hover { color:var(--primary); }
+    .popular-post-info span { font-size:12px; color:var(--gray-400); display:block; margin-top:4px; }
+    .tag-cloud { display:flex; flex-wrap:wrap; gap:8px; }
+    .tag-cloud a { padding:5px 12px; background:var(--gray-100); border-radius:20px; font-size:13px; color:var(--gray-600); transition:var(--transition); }
+    .tag-cloud a:hover { background:var(--primary); color:white; }
+    @media (max-width:1024px) { .blog-layout { grid-template-columns:1fr; } .blog-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:640px) { .blog-grid { grid-template-columns:1fr; } }
+    .cat-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:28px; }
+    .cat-tab { padding:7px 16px; border-radius:24px; font-size:14px; font-weight:500; background:var(--gray-100); color:var(--gray-600); cursor:pointer; transition:var(--transition); border:none; }
+    .cat-tab:hover { background:var(--primary-bg); color:var(--primary); }
+    .cat-tab.active { background:var(--primary); color:white; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon"><i class="fas fa-compass"></i></div>
+      <span class="logo-text">DN<span>Travel</span></span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link">Trang chủ</a></li>
+      <li><a href="tours.html" class="nav-link">Tour trong nước</a></li>
+      <li><a href="tours.html?type=international" class="nav-link">Tour nước ngoài</a></li>
+      <li><a href="tours.html?type=combo" class="nav-link">Combo &amp; KS</a></li>
+      <li><a href="about.html" class="nav-link">Về chúng tôi</a></li>
+    </ul>
+    <div class="navbar-cta"><a href="contact.html" class="btn btn-primary btn-sm">Liên hệ ngay</a></div>
+    <button class="navbar-toggle" aria-label="Mở menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="nav-link">Trang chủ</a>
+  <a href="tours.html" class="nav-link">Tour trong nước</a>
+  <a href="about.html" class="nav-link">Về chúng tôi</a>
+  <a href="contact.html" class="nav-link">Liên hệ</a>
+</div>
+
+<div class="page-header">
+  <div class="container page-header-content">
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span class="sep"><i class="fas fa-chevron-right" style="font-size:10px;"></i></span>
+      <span class="current">Cẩm nang du lịch</span>
+    </div>
+    <h1>Cẩm nang du lịch</h1>
+    <p>Kinh nghiệm, lịch trình và bí kíp du lịch từ những người đi nhiều nhất</p>
+  </div>
+</div>
+
+<section class="section-sm">
+  <div class="container">
+
+    <!-- Featured article -->
+    <div class="blog-featured" style="margin-bottom:40px;">
+      <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1200&q=80" alt="Hạ Long nổi bật" loading="lazy" />
+      <div class="blog-featured-content">
+        <div class="cat">Gợi ý lịch trình</div>
+        <h2>Lịch trình 2 ngày 1 đêm khám phá Vịnh Hạ Long hoàn hảo dành cho lần đầu</h2>
+        <p style="margin-bottom:16px;">Vịnh Hạ Long là Di sản Thiên nhiên Thế giới được UNESCO công nhận. Bài viết này sẽ giúp bạn lên lịch trình chi tiết nhất...</p>
+        <a href="#" class="btn btn-outline-white btn-sm">Đọc bài viết <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="blog-layout">
+      <!-- Articles -->
+      <div>
+        <!-- Category tabs -->
+        <div class="cat-tabs">
+          <button class="cat-tab active">Tất cả</button>
+          <button class="cat-tab">Du lịch trong nước</button>
+          <button class="cat-tab">Du lịch quốc tế</button>
+          <button class="cat-tab">Kinh nghiệm</button>
+          <button class="cat-tab">Ẩm thực</button>
+          <button class="cat-tab">Lịch trình</button>
+        </div>
+
+        <div class="blog-grid">
+          <div class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=75" alt="Sa Pa" loading="lazy" />
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-cat">Du lịch trong nước</div>
+              <h3 class="blog-card-title"><a href="#">Top 10 điểm check-in đẹp nhất Sa Pa bạn không thể bỏ lỡ</a></h3>
+              <p style="font-size:13px;color:var(--gray-500);margin-bottom:10px;line-height:1.6;">Sa Pa không chỉ nổi tiếng với ruộng bậc thang mà còn có nhiều góc sống ảo cực đẹp...</p>
+              <div class="blog-card-meta">
+                <img src="https://i.pravatar.cc/24?img=3" style="width:24px;height:24px;border-radius:50%;object-fit:cover;" alt="Tác giả" />
+                Hà Linh · 5 phút đọc · 15/05
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=600&q=75" alt="Hội An" loading="lazy" />
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-cat">Kinh nghiệm</div>
+              <h3 class="blog-card-title"><a href="#">Kinh nghiệm du lịch Hội An: Ăn gì, ở đâu, đi đâu?</a></h3>
+              <p style="font-size:13px;color:var(--gray-500);margin-bottom:10px;line-height:1.6;">Hội An là thành phố cổ thơ mộng nhất Việt Nam. Đây là toàn bộ kinh nghiệm từ A–Z...</p>
+              <div class="blog-card-meta">
+                <img src="https://i.pravatar.cc/24?img=7" style="width:24px;height:24px;border-radius:50%;object-fit:cover;" alt="Tác giả" />
+                Minh Tuấn · 7 phút đọc · 10/05
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=600&q=75" alt="Đà Lạt" loading="lazy" />
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-cat">Lịch trình</div>
+              <h3 class="blog-card-title"><a href="#">3 ngày 2 đêm Đà Lạt: Lịch trình hoàn hảo cho cặp đôi</a></h3>
+              <p style="font-size:13px;color:var(--gray-500);margin-bottom:10px;line-height:1.6;">Đà Lạt — thành phố ngàn hoa, lý tưởng cho kỳ trăng mật hay các cặp đôi muốn trốn khỏi phố thị...</p>
+              <div class="blog-card-meta">
+                <img src="https://i.pravatar.cc/24?img=9" style="width:24px;height:24px;border-radius:50%;object-fit:cover;" alt="Tác giả" />
+                Thu Hương · 6 phút đọc · 05/05
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=600&q=75" alt="Hà Giang" loading="lazy" />
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-cat">Du lịch trong nước</div>
+              <h3 class="blog-card-title"><a href="#">Hà Giang Loop — Cung đường phượt đẹp nhất Việt Nam</a></h3>
+              <p style="font-size:13px;color:var(--gray-500);margin-bottom:10px;line-height:1.6;">Hà Giang Loop là hành trình không thể thiếu với những tín đồ phượt. Địa hình hùng vĩ, văn hóa độc đáo...</p>
+              <div class="blog-card-meta">
+                <img src="https://i.pravatar.cc/24?img=11" style="width:24px;height:24px;border-radius:50%;object-fit:cover;" alt="Tác giả" />
+                Quốc Bảo · 8 phút đọc · 28/04
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=600&q=75" alt="Phú Quốc" loading="lazy" />
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-cat">Ẩm thực</div>
+              <h3 class="blog-card-title"><a href="#">Ăn gì ở Phú Quốc? 20 món đặc sản nhất định phải thử</a></h3>
+              <p style="font-size:13px;color:var(--gray-500);margin-bottom:10px;line-height:1.6;">Phú Quốc không chỉ đẹp mà còn có nền ẩm thực phong phú với hải sản tươi sống và đặc sản độc đáo...</p>
+              <div class="blog-card-meta">
+                <img src="https://i.pravatar.cc/24?img=15" style="width:24px;height:24px;border-radius:50%;object-fit:cover;" alt="Tác giả" />
+                Lan Anh · 4 phút đọc · 20/04
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-card">
+            <div class="blog-card-img">
+              <img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?auto=format&fit=crop&w=600&q=75" alt="Mộc Châu" loading="lazy" />
+            </div>
+            <div class="blog-card-body">
+              <div class="blog-card-cat">Kinh nghiệm</div>
+              <h3 class="blog-card-title"><a href="#">Mộc Châu mùa hoa cải: Thời điểm đẹp và kinh nghiệm di chuyển</a></h3>
+              <p style="font-size:13px;color:var(--gray-500);margin-bottom:10px;line-height:1.6;">Hoa cải trắng nở vào tháng 11–12 biến Mộc Châu thành xứ sở thần tiên. Đây là những gì bạn cần biết...</p>
+              <div class="blog-card-meta">
+                <img src="https://i.pravatar.cc/24?img=19" style="width:24px;height:24px;border-radius:50%;object-fit:cover;" alt="Tác giả" />
+                Bích Ngọc · 5 phút đọc · 15/04
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination" style="margin-top:32px;">
+          <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+          <button class="page-btn active">1</button>
+          <button class="page-btn">2</button>
+          <button class="page-btn">3</button>
+          <span style="padding:0 4px;color:var(--gray-400);">...</span>
+          <button class="page-btn">12</button>
+          <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="blog-sidebar-widget">
+          <h3>Tìm kiếm</h3>
+          <div style="position:relative;">
+            <input type="text" placeholder="Tìm bài viết..." style="width:100%;border:1.5px solid var(--gray-200);border-radius:var(--radius);padding:9px 36px 9px 12px;font-size:14px;outline:none;transition:var(--transition);" />
+            <i class="fas fa-search" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--gray-400);font-size:14px;"></i>
+          </div>
+        </div>
+
+        <div class="blog-sidebar-widget">
+          <h3>Danh mục</h3>
+          <div class="category-list">
+            <div class="category-item active">Tất cả <span class="count">48</span></div>
+            <div class="category-item">Du lịch trong nước <span class="count">18</span></div>
+            <div class="category-item">Du lịch quốc tế <span class="count">12</span></div>
+            <div class="category-item">Kinh nghiệm <span class="count">9</span></div>
+            <div class="category-item">Ẩm thực <span class="count">5</span></div>
+            <div class="category-item">Lịch trình <span class="count">4</span></div>
+          </div>
+        </div>
+
+        <div class="blog-sidebar-widget">
+          <h3>Bài viết nổi bật</h3>
+          <div class="popular-post">
+            <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=100&q=60" alt="Hạ Long" loading="lazy" />
+            <div class="popular-post-info">
+              <h4><a href="#">Lịch trình Hạ Long 2N1Đ hoàn hảo</a></h4>
+              <span><i class="far fa-eye"></i> 12.4K lượt xem</span>
+            </div>
+          </div>
+          <div class="popular-post">
+            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=100&q=60" alt="Sa Pa" loading="lazy" />
+            <div class="popular-post-info">
+              <h4><a href="#">Top 10 check-in đẹp tại Sa Pa</a></h4>
+              <span><i class="far fa-eye"></i> 9.8K lượt xem</span>
+            </div>
+          </div>
+          <div class="popular-post">
+            <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=100&q=60" alt="Hội An" loading="lazy" />
+            <div class="popular-post-info">
+              <h4><a href="#">Kinh nghiệm du lịch Hội An A–Z</a></h4>
+              <span><i class="far fa-eye"></i> 8.2K lượt xem</span>
+            </div>
+          </div>
+          <div class="popular-post">
+            <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=100&q=60" alt="Phú Quốc" loading="lazy" />
+            <div class="popular-post-info">
+              <h4><a href="#">20 đặc sản nhất định thử ở Phú Quốc</a></h4>
+              <span><i class="far fa-eye"></i> 7.1K lượt xem</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="blog-sidebar-widget">
+          <h3>Thẻ phổ biến</h3>
+          <div class="tag-cloud">
+            <a href="#">Hạ Long</a>
+            <a href="#">Sa Pa</a>
+            <a href="#">Hội An</a>
+            <a href="#">Đà Lạt</a>
+            <a href="#">Phú Quốc</a>
+            <a href="#">Trekking</a>
+            <a href="#">Biển đảo</a>
+            <a href="#">Ẩm thực</a>
+            <a href="#">Cặp đôi</a>
+            <a href="#">Gia đình</a>
+            <a href="#">Backpacker</a>
+          </div>
+        </div>
+
+        <!-- CTA widget -->
+        <div style="background:var(--primary-dark);border-radius:var(--radius-lg);padding:20px;text-align:center;">
+          <div style="font-size:32px;margin-bottom:12px;">🗺️</div>
+          <h3 style="font-size:16px;font-weight:700;color:white;margin-bottom:8px;">Cần tư vấn lịch trình?</h3>
+          <p style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:16px;">Đội ngũ chuyên gia DN Travel luôn sẵn sàng hỗ trợ bạn</p>
+          <a href="contact.html" class="btn btn-accent btn-sm" style="width:100%;justify-content:center;">Liên hệ ngay</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-text">DN<span>Travel</span></div><p>DN Travel — Hành trình trọn vẹn, kỷ niệm đáng nhớ.</p><div class="footer-socials"><a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-youtube"></i></a></div></div>
+      <div class="footer-col"><h4>Tour du lịch</h4><ul><li><a href="tours.html">Tour trong nước</a></li><li><a href="tours.html?type=international">Tour nước ngoài</a></li><li><a href="departure.html">Lịch khởi hành</a></li></ul></div>
+      <div class="footer-col"><h4>Về DN Travel</h4><ul><li><a href="about.html">Giới thiệu</a></li><li><a href="travel-guide.html">Cẩm nang</a></li><li><a href="contact.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Liên hệ</h4><div class="footer-contact-item"><i class="fas fa-phone ico"></i><span>1900 1234</span></div><div class="footer-contact-item"><i class="fas fa-envelope ico"></i><span>info@d9travel.vn</span></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container" style="display:flex;width:100%;justify-content:space-between;"><span>© 2025 DN Travel. Tất cả quyền được bảo lưu.</span></div></div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script>
+document.querySelectorAll('.cat-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+  });
+});
+document.querySelectorAll('.category-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.category-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>

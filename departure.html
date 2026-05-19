@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lịch khởi hành — DN Travel</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .dep-layout { display: grid; grid-template-columns: 300px 1fr; gap: 28px; align-items: start; }
+    .dep-filter { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-xl); padding:24px; position:sticky; top:84px; }
+    .dep-filter h3 { font-size:16px; font-weight:700; color:var(--gray-900); margin-bottom:16px; }
+    .dep-month-nav { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
+    .dep-month-nav h4 { font-size:15px; font-weight:700; color:var(--gray-900); }
+    .dep-month-nav button { width:30px; height:30px; border:1.5px solid var(--gray-200); border-radius:6px; background:white; cursor:pointer; transition:var(--transition); display:flex;align-items:center;justify-content:center;color:var(--gray-500); }
+    .dep-month-nav button:hover { border-color:var(--primary); color:var(--primary); }
+    .legend { display:flex; flex-direction:column; gap:8px; margin-top:16px; padding-top:16px; border-top:1px solid var(--gray-200); }
+    .legend-item { display:flex; align-items:center; gap:8px; font-size:13px; color:var(--gray-600); }
+    .legend-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+    .dep-table-wrap { background:var(--white); border:1px solid var(--gray-200); border-radius:var(--radius-xl); overflow:hidden; }
+    .dep-toolbar { padding:16px 20px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid var(--gray-200); flex-wrap:wrap; gap:12px; }
+    .dep-toolbar h3 { font-size:16px; font-weight:700; color:var(--gray-900); }
+    .dep-search { display:flex; gap:10px; flex-wrap:wrap; }
+    .dep-search input, .dep-search select { border:1.5px solid var(--gray-200); border-radius:var(--radius); padding:8px 12px; font-size:14px; outline:none; transition:var(--transition); }
+    .dep-search input:focus, .dep-search select:focus { border-color:var(--primary); }
+    @media (max-width:768px) { .dep-layout { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon"><i class="fas fa-compass"></i></div>
+      <span class="logo-text">DN<span>Travel</span></span>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link">Trang chủ</a></li>
+      <li><a href="tours.html" class="nav-link">Tour trong nước</a></li>
+      <li><a href="tours.html?type=international" class="nav-link">Tour nước ngoài</a></li>
+      <li><a href="tours.html?type=combo" class="nav-link">Combo &amp; KS</a></li>
+      <li><a href="about.html" class="nav-link">Về chúng tôi</a></li>
+    </ul>
+    <div class="navbar-cta"><a href="contact.html" class="btn btn-primary btn-sm">Liên hệ ngay</a></div>
+    <button class="navbar-toggle" aria-label="Mở menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="index.html" class="nav-link">Trang chủ</a>
+  <a href="tours.html" class="nav-link">Tour trong nước</a>
+  <a href="about.html" class="nav-link">Về chúng tôi</a>
+  <a href="contact.html" class="nav-link">Liên hệ</a>
+</div>
+
+<div class="page-header">
+  <div class="container page-header-content">
+    <div class="breadcrumb">
+      <a href="index.html">Trang chủ</a>
+      <span class="sep"><i class="fas fa-chevron-right" style="font-size:10px;"></i></span>
+      <span class="current">Lịch khởi hành</span>
+    </div>
+    <h1>Lịch khởi hành</h1>
+    <p>Xem ngày khởi hành và tình trạng còn chỗ của tất cả tour</p>
+  </div>
+</div>
+
+<section class="section-sm">
+  <div class="container">
+    <div class="dep-layout">
+
+      <!-- Sidebar calendar -->
+      <aside>
+        <div class="dep-filter">
+          <h3>Chọn tháng</h3>
+          <div class="month-calendar">
+            <div class="cal-header">
+              <span class="cal-month-title" style="font-size:15px;font-weight:700;color:var(--gray-900);">Tháng 6 2025</span>
+              <div class="cal-nav">
+                <button class="cal-prev"><i class="fas fa-chevron-left" style="font-size:11px;"></i></button>
+                <button class="cal-next"><i class="fas fa-chevron-right" style="font-size:11px;"></i></button>
+              </div>
+            </div>
+            <div class="cal-grid"></div>
+          </div>
+
+          <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:var(--primary);"></div> Ngày có tour khởi hành</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#F59E0B;"></div> Hôm nay</div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--gray-200);"></div> Không có tour</div>
+          </div>
+
+          <hr class="divider" />
+
+          <h3>Lọc theo điểm đến</h3>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <label class="filter-option"><input type="checkbox" checked /> Tất cả điểm đến</label>
+            <label class="filter-option"><input type="checkbox" /> Miền Bắc</label>
+            <label class="filter-option"><input type="checkbox" /> Miền Trung</label>
+            <label class="filter-option"><input type="checkbox" /> Miền Nam</label>
+            <label class="filter-option"><input type="checkbox" /> Tây Nguyên</label>
+            <label class="filter-option"><input type="checkbox" /> Quốc tế</label>
+          </div>
+
+          <hr class="divider" />
+          <h3>Lọc theo thời gian</h3>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <label class="filter-option"><input type="checkbox" checked /> Tất cả</label>
+            <label class="filter-option"><input type="checkbox" /> 1–2 ngày</label>
+            <label class="filter-option"><input type="checkbox" /> 3–4 ngày</label>
+            <label class="filter-option"><input type="checkbox" /> 5–7 ngày</label>
+            <label class="filter-option"><input type="checkbox" /> Trên 7 ngày</label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main table -->
+      <div>
+        <div class="dep-table-wrap">
+          <div class="dep-toolbar">
+            <h3>Lịch khởi hành tháng 6/2025</h3>
+            <div class="dep-search">
+              <input type="text" placeholder="Tên tour hoặc điểm đến..." style="width:220px;" />
+              <select>
+                <option>Sắp xếp: Ngày gần nhất</option>
+                <option>Giá tăng dần</option>
+                <option>Giá giảm dần</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="overflow-x:auto;">
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>Ngày khởi hành</th>
+                  <th>Tour</th>
+                  <th>Điểm đến</th>
+                  <th>Thời gian</th>
+                  <th>Giá/người</th>
+                  <th>Tình trạng</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>03/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Ba</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Vịnh Hạ Long — Du thuyền 5 sao</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-HL-001</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Hạ Long</td>
+                  <td style="font-size:14px;">2N1Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">4.200.000đ</td>
+                  <td><span class="status-badge status-open">Còn chỗ</span></td>
+                  <td><a href="booking.html" class="btn btn-primary btn-sm">Đặt ngay</a></td>
+                </tr>
+                <tr>
+                  <td><strong>05/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Năm</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Sa Pa — Chinh phục Fansipan</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-SP-003</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Sa Pa</td>
+                  <td style="font-size:14px;">3N2Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">3.200.000đ</td>
+                  <td><span class="status-badge status-few">Còn 3 chỗ</span></td>
+                  <td><a href="booking.html" class="btn btn-primary btn-sm">Đặt ngay</a></td>
+                </tr>
+                <tr>
+                  <td><strong>07/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Bảy</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Phố cổ Hội An — Đèn lồng &amp; Ẩm thực</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-HA-007</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Hội An</td>
+                  <td style="font-size:14px;">4N3Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">3.500.000đ</td>
+                  <td><span class="status-badge status-open">Còn chỗ</span></td>
+                  <td><a href="booking.html" class="btn btn-primary btn-sm">Đặt ngay</a></td>
+                </tr>
+                <tr>
+                  <td><strong>10/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Ba</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Đà Lạt — Thành phố sương mù</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-DL-012</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Đà Lạt</td>
+                  <td style="font-size:14px;">3N2Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">2.800.000đ</td>
+                  <td><span class="status-badge status-full">Hết chỗ</span></td>
+                  <td><button class="btn btn-outline btn-sm" style="opacity:0.5;cursor:default;" disabled>Hết chỗ</button></td>
+                </tr>
+                <tr>
+                  <td><strong>12/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Năm</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Phú Quốc — Đảo ngọc nghỉ dưỡng</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-PQ-005</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Phú Quốc</td>
+                  <td style="font-size:14px;">4N3Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">5.800.000đ</td>
+                  <td><span class="status-badge status-open">Còn chỗ</span></td>
+                  <td><a href="booking.html" class="btn btn-primary btn-sm">Đặt ngay</a></td>
+                </tr>
+                <tr>
+                  <td><strong>14/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Bảy</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Hà Giang — Cung đường đèo hùng vĩ</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-HG-002</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Hà Giang</td>
+                  <td style="font-size:14px;">4N3Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">4.500.000đ</td>
+                  <td><span class="status-badge status-few">Còn 2 chỗ</span></td>
+                  <td><a href="booking.html" class="btn btn-primary btn-sm">Đặt ngay</a></td>
+                </tr>
+                <tr>
+                  <td><strong>18/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Tư</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Khám phá Mộc Châu mùa hoa cải</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-MC-008</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Mộc Châu</td>
+                  <td style="font-size:14px;">3N2Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">2.900.000đ</td>
+                  <td><span class="status-badge status-open">Còn chỗ</span></td>
+                  <td><a href="booking.html" class="btn btn-primary btn-sm">Đặt ngay</a></td>
+                </tr>
+                <tr>
+                  <td><strong>21/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Bảy</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Nha Trang — 4 đảo hoang sơ</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-NT-014</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Nha Trang</td>
+                  <td style="font-size:14px;">3N2Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">3.100.000đ</td>
+                  <td><span class="status-badge status-open">Còn chỗ</span></td>
+                  <td><a href="booking.html" class="btn btn-primary btn-sm">Đặt ngay</a></td>
+                </tr>
+                <tr>
+                  <td><strong>25/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Tư</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Vịnh Hạ Long — Du thuyền 5 sao</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-HL-002</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Hạ Long</td>
+                  <td style="font-size:14px;">2N1Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">4.200.000đ</td>
+                  <td><span class="status-badge status-open">Còn chỗ</span></td>
+                  <td><a href="booking.html" class="btn btn-primary btn-sm">Đặt ngay</a></td>
+                </tr>
+                <tr>
+                  <td><strong>28/06/2025</strong><div style="font-size:12px;color:var(--gray-400);">Thứ Bảy</div></td>
+                  <td>
+                    <a href="tour-detail.html" style="font-weight:600;color:var(--gray-900);font-size:14px;">Mũi Né — Đồi cát bay cực đẹp</a>
+                    <div style="font-size:12px;color:var(--gray-400);margin-top:2px;">Mã: D9-MN-009</div>
+                  </td>
+                  <td style="font-size:14px;"><i class="fas fa-map-marker-alt" style="color:var(--primary);font-size:12px;"></i> Mũi Né</td>
+                  <td style="font-size:14px;">2N1Đ</td>
+                  <td style="font-size:14px;font-weight:700;color:var(--primary);">1.950.000đ</td>
+                  <td><span class="status-badge status-few">Còn 4 chỗ</span></td>
+                  <td><a href="booking.html" class="btn btn-primary btn-sm">Đặt ngay</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="padding:16px 20px;border-top:1px solid var(--gray-100);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+            <span style="font-size:14px;color:var(--gray-500);">Hiển thị 10 / 48 lịch khởi hành</span>
+            <div class="pagination" style="margin-top:0;">
+              <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+              <button class="page-btn active">1</button>
+              <button class="page-btn">2</button>
+              <button class="page-btn">3</button>
+              <button class="page-btn">4</button>
+              <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info note -->
+        <div style="background:var(--primary-bg);border-radius:var(--radius-lg);padding:16px 20px;margin-top:20px;display:flex;gap:12px;align-items:flex-start;">
+          <i class="fas fa-info-circle" style="color:var(--primary);font-size:18px;flex-shrink:0;margin-top:2px;"></i>
+          <div>
+            <div style="font-size:14px;font-weight:700;color:var(--primary-dark);margin-bottom:4px;">Lưu ý khi đặt tour</div>
+            <div style="font-size:13px;color:var(--gray-700);line-height:1.6;">Các tour có trạng thái <strong>"Còn ít chỗ"</strong> nên đặt sớm để không bỏ lỡ. Bạn có thể đặt cọc 30% để giữ chỗ. Liên hệ hotline <strong>1900 1234</strong> nếu cần hỗ trợ.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo-text">DN<span>Travel</span></div><p>DN Travel — Hành trình trọn vẹn, kỷ niệm đáng nhớ.</p><div class="footer-socials"><a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a></div></div>
+      <div class="footer-col"><h4>Tour du lịch</h4><ul><li><a href="tours.html">Tour trong nước</a></li><li><a href="tours.html?type=international">Tour nước ngoài</a></li><li><a href="departure.html">Lịch khởi hành</a></li></ul></div>
+      <div class="footer-col"><h4>Về DN Travel</h4><ul><li><a href="about.html">Giới thiệu</a></li><li><a href="travel-guide.html">Cẩm nang</a></li><li><a href="contact.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Liên hệ</h4><div class="footer-contact-item"><i class="fas fa-phone ico"></i><span>1900 1234</span></div><div class="footer-contact-item"><i class="fas fa-envelope ico"></i><span>info@d9travel.vn</span></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><div class="container" style="display:flex;width:100%;justify-content:space-between;"><span>© 2025 DN Travel. Tất cả quyền được bảo lưu.</span></div></div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

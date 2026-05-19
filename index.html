@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DN Travel — Hành trình trọn vẹn, kỷ niệm đáng nhớ</title>
+  <meta name="description" content="DN Travel chuyên cung cấp các tour du lịch trong nước và quốc tế chất lượng cao, giá tốt nhất. Khám phá Việt Nam cùng chúng tôi." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .fade-in-target { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .fade-in-target.visible { opacity: 1; transform: none; }
+    .destinations-section { padding: 72px 0; background: var(--gray-50); }
+    .dest-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+    .dest-card { position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 3/4; cursor: pointer; }
+    .dest-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
+    .dest-card:hover img { transform: scale(1.07); }
+    .dest-card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; }
+    .dest-card-overlay h3 { color: white; font-size: 18px; font-weight: 700; }
+    .dest-card-overlay p { color: rgba(255,255,255,0.8); font-size: 13px; margin-top: 3px; }
+    .dest-card.large { grid-row: span 2; aspect-ratio: auto; }
+    .dest-card.large .dest-card-overlay h3 { font-size: 22px; }
+    @media (max-width: 768px) { .dest-grid { grid-template-columns: repeat(2, 1fr); } .dest-card.large { grid-row: span 1; } }
+    @media (max-width: 480px) { .dest-grid { grid-template-columns: 1fr 1fr; } }
+    .testimonial-section { padding: 72px 0; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+    .testimonial-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); padding: 24px; transition: var(--transition); }
+    .testimonial-card:hover { box-shadow: var(--shadow); border-color: var(--gray-300); }
+    .stars { color: #F59E0B; font-size: 14px; margin-bottom: 12px; }
+    .testimonial-card p { font-size: 15px; color: var(--gray-600); line-height: 1.7; font-style: italic; margin-bottom: 16px; }
+    .reviewer { display: flex; align-items: center; gap: 10px; }
+    .reviewer-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+    .reviewer-info h5 { font-size: 14px; font-weight: 700; color: var(--gray-900); }
+    .reviewer-info span { font-size: 12px; color: var(--gray-400); }
+    @media (max-width: 768px) { .testimonial-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══════════════════════════════════════════ -->
+<nav class="navbar" data-transparent="true" id="navbar">
+  <div class="container navbar-inner">
+    <a href="index.html" class="navbar-logo">
+      <div class="logo-icon">
+        <i class="fas fa-compass"></i>
+      </div>
+      <span class="logo-text">DN<span>Travel</span></span>
+    </a>
+
+    <ul class="navbar-nav">
+      <li><a href="index.html" class="nav-link active">Trang chủ</a></li>
+      <li><a href="tours.html" class="nav-link">Tour trong nước</a></li>
+      <li><a href="tours.html?type=international" class="nav-link">Tour nước ngoài</a></li>
+      <li><a href="tours.html?type=combo" class="nav-link">Combo &amp; KS</a></li>
+      <li><a href="about.html" class="nav-link">Về chúng tôi</a></li>
+    </ul>
+
+    <div class="navbar-cta">
+      <a href="contact.html" class="btn btn-primary btn-sm">Liên hệ ngay</a>
+    </div>
+
+    <button class="navbar-toggle" aria-label="Mở menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu">
+  <a href="index.html" class="nav-link active">Trang chủ</a>
+  <a href="tours.html" class="nav-link">Tour trong nước</a>
+  <a href="tours.html?type=international" class="nav-link">Tour nước ngoài</a>
+  <a href="tours.html?type=combo" class="nav-link">Combo &amp; KS</a>
+  <a href="about.html" class="nav-link">Về chúng tôi</a>
+  <a href="contact.html" class="nav-link">Liên hệ</a>
+</div>
+
+<!-- ═══ HERO ══════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=1920&q=80')"></div>
+  <div class="container" style="width:100%;">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-star" style="color:#F4A261;font-size:11px;"></i>
+        Được tin tưởng bởi 10,000+ khách hàng
+      </div>
+      <h1 class="hero-title">
+        Hành trình<br>
+        trọn vẹn<br>
+        <span class="accent-text">Kỷ niệm đáng nhớ</span>
+      </h1>
+      <p class="hero-sub">Khám phá vẻ đẹp Việt Nam và thế giới cùng DN Travel — nơi mỗi chuyến đi là một câu chuyện đáng kể.</p>
+      <div class="hero-actions">
+        <a href="tours.html" class="btn btn-primary btn-lg">
+          <i class="fas fa-search"></i> Khám phá ngay
+        </a>
+        <a href="about.html" class="btn btn-outline-white btn-lg">Về chúng tôi</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating search bar -->
+  <div class="search-float">
+    <div class="container">
+      <div class="search-card">
+        <!-- Tabs -->
+        <div class="search-tabs">
+          <button class="search-tab active" data-type=""><i class="fas fa-map-marked-alt"></i> Tour trong nước</button>
+          <button class="search-tab" data-type="international"><i class="fas fa-globe-asia"></i> Tour nước ngoài</button>
+          <button class="search-tab" data-type="combo"><i class="fas fa-hotel"></i> Combo &amp; KS</button>
+        </div>
+        <!-- Fields row -->
+        <div class="search-fields">
+          <div class="search-field">
+            <label for="dest-input"><i class="fas fa-map-marker-alt"></i> Điểm đến</label>
+            <div class="input-icon">
+              <i class="fas fa-map-marker-alt icon"></i>
+              <input type="text" id="dest-input" placeholder="Bạn muốn đi đâu?" list="dest-list" />
+              <datalist id="dest-list">
+                <option value="Hạ Long Bay, Quảng Ninh" />
+                <option value="Sa Pa, Lào Cai" />
+                <option value="Hội An, Quảng Nam" />
+                <option value="Đà Lạt, Lâm Đồng" />
+                <option value="Phú Quốc, Kiên Giang" />
+                <option value="Mộc Châu, Sơn La" />
+                <option value="Nha Trang, Khánh Hòa" />
+                <option value="Đà Nẵng" />
+              </datalist>
+            </div>
+          </div>
+
+          <div class="search-divider"></div>
+
+          <div class="search-field">
+            <label for="date-from"><i class="fas fa-calendar-alt"></i> Ngày đi</label>
+            <div class="input-icon">
+              <i class="fas fa-calendar icon"></i>
+              <input type="date" id="date-from" />
+            </div>
+          </div>
+
+          <div class="search-divider"></div>
+
+          <div class="search-field">
+            <label for="date-to"><i class="fas fa-calendar-check"></i> Ngày về</label>
+            <div class="input-icon">
+              <i class="fas fa-calendar icon"></i>
+              <input type="date" id="date-to" />
+            </div>
+          </div>
+
+          <div class="search-divider"></div>
+
+          <div class="search-field" style="max-width:150px;">
+            <label><i class="fas fa-users"></i> Số khách</label>
+            <select>
+              <option>1 người</option>
+              <option selected>2 người</option>
+              <option>3 người</option>
+              <option>4 người</option>
+              <option>5–10 người</option>
+              <option>Đoàn &gt;10</option>
+            </select>
+          </div>
+
+          <div class="search-btn">
+            <a href="tours.html" class="btn btn-primary">
+              <i class="fas fa-search"></i> Tìm tour
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES BAR ══════════════════════════════════════ -->
+<section class="features-bar">
+  <div class="container">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+        <div class="feature-text">
+          <h4>Hướng dẫn viên chuyên nghiệp</h4>
+          <p>Đội ngũ HDV kinh nghiệm, am hiểu văn hóa địa phương</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+        <div class="feature-text">
+          <h4>Hỗ trợ trực tuyến 24/7</h4>
+          <p>Luôn sẵn sàng giải đáp mọi thắc mắc của bạn</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-tag"></i></div>
+        <div class="feature-text">
+          <h4>Giá tốt nhất thị trường</h4>
+          <p>Cam kết hoàn tiền nếu bạn tìm được giá rẻ hơn</p>
+        </div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+        <div class="feature-text">
+          <h4>An toàn &amp; đáng tin cậy</h4>
+          <p>Đầy đủ bảo hiểm du lịch, cấp phép hoạt động hợp pháp</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURED TOURS ════════════════════════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="flex-between mb-6">
+      <div>
+        <span class="section-label">Gợi ý cho bạn</span>
+        <h2 class="section-title">Những hành trình được<br>yêu thích nhất</h2>
+        <p class="section-sub">Được tuyển chọn kỹ càng từ hàng trăm tour chất lượng cao nhất</p>
+      </div>
+      <a href="tours.html" class="btn btn-outline" style="align-self:flex-end;">Xem tất cả <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+
+      <!-- Tour 1 -->
+      <div class="tour-card">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="Tây Bắc - Mộc Châu" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Trekking</span></div>
+          <div class="card-save"><i class="far fa-heart"></i></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta">
+            <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
+            Mộc Châu, Sơn La
+            <span class="dot"></span>
+            Tây Bắc
+          </div>
+          <h3 class="tour-card-name"><a href="tour-detail.html">Khám phá Mộc Châu — Mùa hoa cải trắng</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+            <span><i class="fas fa-users"></i> Tối đa 20 khách</span>
+          </div>
+          <div class="tour-card-footer">
+            <div>
+              <div class="tour-price">2.900.000đ<small>/người</small></div>
+            </div>
+            <div class="tour-rating">
+              <i class="fas fa-star star"></i> 4.8 (126)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour 2 -->
+      <div class="tour-card">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=600&q=80" alt="Hội An" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-orange">Khuyến mãi</span></div>
+          <div class="card-save"><i class="far fa-heart"></i></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta">
+            <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
+            Hội An, Quảng Nam
+            <span class="dot"></span>
+            Trung bộ
+          </div>
+          <h3 class="tour-card-name"><a href="tour-detail.html">Phố cổ Hội An — Đèn lồng &amp; Ẩm thực</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 4N3Đ</span>
+            <span><i class="fas fa-users"></i> Tối đa 15 khách</span>
+          </div>
+          <div class="tour-card-footer">
+            <div>
+              <div class="tour-price">3.500.000đ<small>/người</small></div>
+            </div>
+            <div class="tour-rating">
+              <i class="fas fa-star star"></i> 4.9 (203)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour 3 -->
+      <div class="tour-card">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&q=80" alt="Hạ Long Bay" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển đảo</span></div>
+          <div class="card-save"><i class="far fa-heart"></i></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta">
+            <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
+            Hạ Long, Quảng Ninh
+            <span class="dot"></span>
+            Đông Bắc
+          </div>
+          <h3 class="tour-card-name"><a href="tour-detail.html">Vịnh Hạ Long — Du thuyền 5 sao</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 2N1Đ</span>
+            <span><i class="fas fa-users"></i> Tối đa 30 khách</span>
+          </div>
+          <div class="tour-card-footer">
+            <div>
+              <div class="tour-price">4.200.000đ<small>/người</small></div>
+            </div>
+            <div class="tour-rating">
+              <i class="fas fa-star star"></i> 4.9 (341)
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour 4 -->
+      <div class="tour-card">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1596401057633-54a8a2c1f4f2?auto=format&fit=crop&w=600&q=80" alt="Phú Quốc" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển đảo</span></div>
+          <div class="card-save"><i class="far fa-heart"></i></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta">
+            <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
+            Phú Quốc, Kiên Giang
+            <span class="dot"></span>
+            Nam bộ
+          </div>
+          <h3 class="tour-card-name"><a href="tour-detail.html">Phú Quốc — Đảo ngọc nghỉ dưỡng</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 4N3Đ</span>
+            <span><i class="fas fa-users"></i> Tối đa 20 khách</span>
+          </div>
+          <div class="tour-card-footer">
+            <div>
+              <div class="tour-price">5.800.000đ<small>/người</small></div>
+            </div>
+            <div class="tour-rating">
+              <i class="fas fa-star star"></i> 4.7 (189)
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /grid -->
+  </div>
+</section>
+
+<!-- ═══ DESTINATIONS ══════════════════════════════════════ -->
+<section class="destinations-section">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:40px;">
+      <span class="section-label">Khám phá</span>
+      <h2 class="section-title">Điểm đến nổi bật</h2>
+      <p class="section-sub" style="margin:10px auto 0;">Những điểm đến được du khách yêu thích nhất Việt Nam</p>
+    </div>
+
+    <div class="dest-grid">
+      <a href="tours.html?dest=sapa" class="dest-card large">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="Sapa" loading="lazy" />
+        <div class="dest-card-overlay">
+          <h3>Sa Pa</h3>
+          <p>56 tour · Lào Cai</p>
+        </div>
+      </a>
+      <a href="tours.html?dest=halong" class="dest-card">
+        <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&q=80" alt="Hạ Long" loading="lazy" />
+        <div class="dest-card-overlay">
+          <h3>Hạ Long Bay</h3>
+          <p>43 tour · Quảng Ninh</p>
+        </div>
+      </a>
+      <a href="tours.html?dest=hoian" class="dest-card">
+        <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=600&q=80" alt="Hội An" loading="lazy" />
+        <div class="dest-card-overlay">
+          <h3>Hội An</h3>
+          <p>38 tour · Quảng Nam</p>
+        </div>
+      </a>
+      <a href="tours.html?dest=dalat" class="dest-card">
+        <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=600&q=80" alt="Đà Lạt" loading="lazy" />
+        <div class="dest-card-overlay">
+          <h3>Đà Lạt</h3>
+          <p>61 tour · Lâm Đồng</p>
+        </div>
+      </a>
+      <a href="tours.html?dest=phuquoc" class="dest-card">
+        <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=600&q=80" alt="Phú Quốc" loading="lazy" />
+        <div class="dest-card-overlay">
+          <h3>Phú Quốc</h3>
+          <p>47 tour · Kiên Giang</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROMO BANNER ══════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="promo-banner">
+      <div class="promo-banner-bg" style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=80')"></div>
+      <div class="promo-banner-content">
+        <span class="badge badge-white" style="margin-bottom:14px;"><i class="fas fa-fire" style="color:#F4A261;margin-right:4px;"></i> Ưu đãi đặc biệt</span>
+        <h2>Tự do khám phá<br>Đó là lý do bạn chọn chúng tôi</h2>
+        <p>Đặt tour trước 30 ngày, tiết kiệm đến 20%. Áp dụng cho tất cả tour trong nước và quốc tế.</p>
+        <div style="display:flex; gap:32px; margin-top:24px;">
+          <div>
+            <div style="font-size:26px;font-weight:800;color:white;">10.000<sup style="font-size:14px;">+</sup></div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:2px;">Khách hàng</div>
+          </div>
+          <div>
+            <div style="font-size:26px;font-weight:800;color:white;">300<sup style="font-size:14px;">+</sup></div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:2px;">Tour chất lượng</div>
+          </div>
+          <div>
+            <div style="font-size:26px;font-weight:800;color:white;">15<sup style="font-size:14px;">+</sup></div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-top:2px;">Năm kinh nghiệm</div>
+          </div>
+        </div>
+      </div>
+      <div class="promo-banner-action">
+        <a href="tours.html" class="btn btn-accent btn-lg">
+          Đặt tour ngay <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ══════════════════════════════════════ -->
+<section class="testimonial-section" style="padding-top:0;">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:40px;">
+      <span class="section-label">Đánh giá khách hàng</span>
+      <h2 class="section-title">Khách hàng nói gì về chúng tôi?</h2>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Tour Hạ Long của DN Travel thực sự tuyệt vời! Du thuyền sang trọng, HDV nhiệt tình, đồ ăn ngon. Chắc chắn sẽ quay lại đặt tour lần nữa."</p>
+        <div class="reviewer">
+          <img src="https://i.pravatar.cc/80?img=1" alt="Nguyễn Thị Lan" class="reviewer-avatar" />
+          <div class="reviewer-info">
+            <h5>Nguyễn Thị Lan</h5>
+            <span>Tour Hạ Long 2N1Đ • 3 tháng trước</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p>"Gia đình tôi 5 người đi tour Phú Quốc, mọi thứ được sắp xếp rất chu đáo. Giá cả hợp lý, không phát sinh chi phí ẩn nào. Rất hài lòng!"</p>
+        <div class="reviewer">
+          <img src="https://i.pravatar.cc/80?img=5" alt="Trần Văn Minh" class="reviewer-avatar" />
+          <div class="reviewer-info">
+            <h5>Trần Văn Minh</h5>
+            <span>Tour Phú Quốc 4N3Đ • 1 tháng trước</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+        <p>"Lần đầu đi tour Sa Pa mà được trải nghiệm văn hóa dân tộc thật sự ấn tượng. HDV giải thích rất tỉ mỉ, chương trình đi đúng lịch."</p>
+        <div class="reviewer">
+          <img src="https://i.pravatar.cc/80?img=9" alt="Lê Thu Hương" class="reviewer-avatar" />
+          <div class="reviewer-info">
+            <h5>Lê Thu Hương</h5>
+            <span>Tour Sa Pa 3N2Đ • 2 tháng trước</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BLOG PREVIEW ══════════════════════════════════════ -->
+<section class="section" style="padding-top:0; background:var(--gray-50);">
+  <div class="container" style="padding-top:72px;">
+    <div class="flex-between mb-6">
+      <div>
+        <span class="section-label">Cẩm nang du lịch</span>
+        <h2 class="section-title">Bài viết mới nhất</h2>
+      </div>
+      <a href="travel-guide.html" class="btn btn-outline" style="align-self:flex-end;">Xem tất cả <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div class="blog-card">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80" alt="Sa Pa" loading="lazy" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Du lịch trong nước</div>
+          <h3 class="blog-card-title"><a href="travel-guide.html">Top 10 điểm check-in đẹp nhất Sa Pa bạn không thể bỏ lỡ</a></h3>
+          <div class="blog-card-meta">
+            <i class="far fa-clock"></i> 5 phút đọc
+            <span>·</span>
+            <i class="far fa-calendar"></i> 15/05/2025
+          </div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=600&q=80" alt="Hội An" loading="lazy" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Kinh nghiệm du lịch</div>
+          <h3 class="blog-card-title"><a href="travel-guide.html">Kinh nghiệm du lịch Hội An: Ăn gì, ở đâu, đi đâu?</a></h3>
+          <div class="blog-card-meta">
+            <i class="far fa-clock"></i> 7 phút đọc
+            <span>·</span>
+            <i class="far fa-calendar"></i> 10/05/2025
+          </div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-card-img">
+          <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=600&q=80" alt="Hạ Long" loading="lazy" />
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Gợi ý lịch trình</div>
+          <h3 class="blog-card-title"><a href="travel-guide.html">Lịch trình 2 ngày 1 đêm khám phá Vịnh Hạ Long hoàn hảo</a></h3>
+          <div class="blog-card-meta">
+            <i class="far fa-clock"></i> 6 phút đọc
+            <span>·</span>
+            <i class="far fa-calendar"></i> 05/05/2025
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">DN<span>Travel</span></div>
+        <p>DN Travel — Công ty du lịch uy tín hơn 15 năm kinh nghiệm. Chúng tôi mang đến những hành trình trọn vẹn và kỷ niệm đáng nhớ cho hàng nghìn du khách mỗi năm.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="footer-social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Tour du lịch</h4>
+        <ul>
+          <li><a href="tours.html">Tour trong nước</a></li>
+          <li><a href="tours.html?type=international">Tour nước ngoài</a></li>
+          <li><a href="tours.html?type=combo">Combo &amp; Khách sạn</a></li>
+          <li><a href="departure.html">Lịch khởi hành</a></li>
+          <li><a href="tours.html?promo=1">Ưu đãi đặc biệt</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Về DN Travel</h4>
+        <ul>
+          <li><a href="about.html">Giới thiệu công ty</a></li>
+          <li><a href="travel-guide.html">Cẩm nang du lịch</a></li>
+          <li><a href="contact.html">Liên hệ</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Điều khoản dịch vụ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Liên hệ</h4>
+        <div class="footer-contact-item">
+          <i class="fas fa-map-marker-alt ico"></i>
+          <span>123 Đường Trần Hưng Đạo, Quận 1, TP. Hồ Chí Minh</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-phone ico"></i>
+          <span>1900 1234 · 0909 123 456</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-envelope ico"></i>
+          <span>info@d9travel.vn</span>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fas fa-clock ico"></i>
+          <span>Thứ 2 – Chủ nhật: 7:30 – 21:00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+      <span>© 2025 DN Travel. Tất cả quyền được bảo lưu.</span>
+      <span>Giấy phép kinh doanh lữ hành số: 01-123/TCDL-GP</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
