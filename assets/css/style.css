@@ -849,6 +849,8 @@ a.btn-accent-outline:hover, .btn-accent-outline:hover { background: var(--accent
   background: var(--primary-bg);
 }
 .tours-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tours-grid--4 { grid-template-columns: repeat(4, 1fr); }
+.blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .tours-grid.list-view { grid-template-columns: 1fr; }
 .tours-grid.list-view .tour-card { display: flex; flex-direction: row; }
 .tours-grid.list-view .tour-card-img { width: 260px; height: auto; min-height: 180px; flex-shrink: 0; }
@@ -1306,12 +1308,15 @@ a.btn-accent-outline:hover, .btn-accent-outline:hover { background: var(--accent
 }
 @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.responsive-grid-2 { display: grid; grid-template-columns: 1fr 1fr; }
 
 /* ─── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 1024px) {
   .features-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
   .tours-grid { grid-template-columns: repeat(2, 1fr); }
+  .tours-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
   .contact-layout { grid-template-columns: 1fr; }
   .booking-layout { grid-template-columns: 1fr; }
   .detail-layout { flex-direction: column; }
@@ -1322,6 +1327,7 @@ a.btn-accent-outline:hover, .btn-accent-outline:hover { background: var(--accent
 }
 @media (max-width: 768px) {
   .navbar-nav { display: none; }
+  .navbar-cta { display: none; }
   .navbar-toggle { display: flex; }
   .hero-content { padding-bottom: 200px; }
   .search-tabs { padding: 0 12px; overflow-x: auto; }
@@ -1338,12 +1344,18 @@ a.btn-accent-outline:hover, .btn-accent-outline:hover { background: var(--accent
   .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
   .booking-steps { display: none; }
   .features-bar { padding: 90px 0 40px; }
+  .features-grid { grid-template-columns: 1fr; }
   .tours-grid { grid-template-columns: 1fr; }
+  .tours-grid--4 { grid-template-columns: 1fr; }
+  .blog-grid { grid-template-columns: 1fr; }
   .page-header { padding: 90px 0 36px; }
   .cta-newsletter-inner { flex-direction: column; text-align: center; }
   .cta-newsletter-text { flex-direction: column; }
   .cta-newsletter-form { flex-direction: column; width: 100%; }
   .cta-newsletter-form input { min-width: 0; width: 100%; }
+  .stats-row { flex-wrap: wrap; gap: 20px; }
+  .stat-item { min-width: 40%; }
+  .responsive-grid-2 { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .container { padding: 0 16px; }
