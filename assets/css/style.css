@@ -1329,7 +1329,9 @@ a.btn-accent-outline:hover, .btn-accent-outline:hover { background: var(--accent
   .navbar-nav { display: none; }
   .navbar-cta { display: none; }
   .navbar-toggle { display: flex; }
-  .hero-content { padding-bottom: 200px; }
+  .hero { flex-wrap: wrap; min-height: auto; }
+  .hero-content { padding-bottom: 40px; width: 100%; }
+  .search-float { position: relative; transform: none; width: 100%; margin-top: -30px; padding: 0 16px; margin-bottom: 20px; }
   .search-tabs { padding: 0 12px; overflow-x: auto; }
   .search-tab { padding: 12px 12px; font-size: 13px; }
   .search-fields { flex-direction: column; padding: 16px 12px; }
