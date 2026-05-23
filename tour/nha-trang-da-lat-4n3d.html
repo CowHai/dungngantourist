@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nha Trang - Đà Lạt | DN Travel</title>
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo.ico" />
+  <meta name="description" content="Kết hợp biển xanh Nha Trang và thành phố sương mù Đà Lạt trong hành trình 4 ngày đáng nhớ." />
+  <meta property="og:title" content="Nha Trang - Đà Lạt | DN Travel" />
+  <meta property="og:description" content="Kết hợp biển xanh Nha Trang và thành phố sương mù Đà Lạt trong hành trình 4 ngày đáng nhớ." />
+  <meta property="og:image" content="../assets/images/logo.png" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .tour-tabs-wrapper { margin-bottom: 0; }
+    .include-list { display: flex; flex-direction: column; gap: 8px; }
+    .include-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--gray-700); }
+    .include-item .ico-yes { color: var(--primary); }
+    .include-item .ico-no { color: #EF4444; }
+    .policy-item { margin-bottom: 16px; }
+    .policy-item h4 { font-size: 15px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+    .policy-item p, .policy-item li { font-size: 14px; color: var(--gray-600); line-height: 1.65; }
+    .policy-item ul { padding-left: 16px; display: flex; flex-direction: column; gap: 4px; }
+    .tour-highlights { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 24px; }
+    .highlight-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px; background: var(--primary-bg); border-radius: var(--radius); }
+    .highlight-item i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+    .highlight-item p { font-size: 13px; color: var(--gray-700); font-weight: 500; }
+    @media (max-width: 768px) { .tour-highlights { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="../index.html" class="navbar-logo">
+      <div class="logo-icon"><img src="../assets/images/logo.png" alt="DN Travel logo" /></div><div>
+      <span class="logo-text">DN <span>TRAVEL</span></span><div class="logo-sub">Khám phá những hành trình tuyệt vời</div></div>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="../index.html" class="nav-link">Trang chủ</a></li>
+      <li><a href="../tours.html" class="nav-link active">Tour trong nước</a></li>
+      <li><a href="../tour-nuoc-ngoai.html" class="nav-link">Tour nước ngoài</a></li>
+      <li><a href="../tour-combo.html" class="nav-link">Combo &amp; KS</a></li>
+      <li><a href="../about.html" class="nav-link">Về chúng tôi</a></li>
+    </ul>
+    <div class="navbar-cta">
+      <a href="../contact.html" class="btn btn-accent-outline btn-sm">Liên hệ ngay</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Mở menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html" class="nav-link">Trang chủ</a>
+  <a href="../tours.html" class="nav-link active">Tour trong nước</a>
+  <a href="../tour-nuoc-ngoai.html" class="nav-link">Tour nước ngoài</a>
+  <a href="../tour-combo.html" class="nav-link">Combo &amp; KS</a>
+  <a href="../about.html" class="nav-link">Về chúng tôi</a>
+  <a href="../contact.html" class="nav-link">Liên hệ</a>
+</div>
+
+<!-- BREADCRUMB + TITLE -->
+<div style="padding-top:68px; background:var(--gray-50); border-bottom:1px solid var(--gray-200);">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Trang chủ</a>
+      <span class="sep"><i class="fas fa-chevron-right" style="font-size:10px;"></i></span>
+      <a href="../tours.html">Tour trong nước</a>
+      <span class="sep"><i class="fas fa-chevron-right" style="font-size:10px;"></i></span>
+      <span class="current">Nha Trang - Đà Lạt</span>
+    </div>
+    <div style="padding: 20px 0 24px; display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+      <div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+          <span class="badge badge-green">Biển & Núi</span>
+        </div>
+        <h1 style="font-size:clamp(22px,3.5vw,32px); font-weight:800; color:var(--gray-900); line-height:1.3;">Tour Nha Trang - Đà Lạt</h1>
+        <div style="display:flex; align-items:center; gap:20px; margin-top:12px; flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:5px;font-size:14px;color:var(--gray-500);">
+            <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
+            Nha Trang, Đà Lạt
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:14px;color:var(--gray-500);">
+            <i class="fas fa-clock" style="color:var(--primary);"></i>
+            4N3Đ
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:14px;color:var(--gray-500);">
+            <i class="fas fa-flag" style="color:var(--primary);"></i>
+            Miền Trung
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-shrink:0;">
+        <a href="../contact.html" class="btn btn-primary btn-sm"><i class="fas fa-phone"></i> Liên hệ tư vấn</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section-sm">
+  <div class="container">
+    <div class="detail-layout">
+
+      <!-- MAIN -->
+      <div class="detail-main">
+
+        <!-- Gallery -->
+        <div class="gallery-grid" style="position:relative;">
+          <div class="main-img">
+            <img src="https://images.unsplash.com/photo-1562602833-0f4ab2fc46e3?auto=format&fit=crop&w=800&q=80" alt="Nha Trang - Đà Lạt" />
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--primary-bg); border-radius: var(--radius-lg); font-size: 15px; color: var(--gray-700); line-height: 1.7;">
+          Kết hợp biển xanh Nha Trang và thành phố sương mù Đà Lạt trong hành trình 4 ngày đáng nhớ.
+        </div>
+
+        <!-- Tabs -->
+        <div class="tour-tabs-wrapper">
+          <div class="tour-tabs">
+            <div class="tour-tab active" data-tab="tab-itinerary">Lịch trình</div>
+            <div class="tour-tab" data-tab="tab-include">Bao gồm / Không bao gồm</div>
+            <div class="tour-tab" data-tab="tab-policy">Chính sách</div>
+          </div>
+
+          <!-- Itinerary -->
+          <div id="tab-itinerary" class="tab-content active" style="margin-top:24px;">
+
+            <div class="itinerary-day">
+              <div class="itinerary-day-header">
+                <span class="day-badge">Ngày 1</span>
+                <h4>SÂN BAY CAM RANH – NHA TRANG</h4>
+              </div>
+              <ul>
+                <li>Sáng: Xe và hướng dẫn viên của công ty Dũng Ngân đón đoàn tại điểm hẹn, đưa đoàn đến sân bay Nội Bài làm thủ tục bay vào Nha Trang.</li>
+                <li>Chuyến bay hạ cánh, xe và HDV của du lịch Dũng Ngân đón đoàn từ sân bay Cam Ranh về TP Nha Trang. Trên đường quý khách sẽ được nghe HDV giới thiệu về các thắng cảnh của thành phố biển xinh đẹp.</li>
+                <li>Đến Nha Trang, quý khách làm thủ tục nhận phòng khách sạn.</li>
+                <li>Sau đó xe đưa đoàn đi tham quan Chùa Long Sơn — tọa lạc dưới chân đồi Trại Thủy, được xây dựng vào cuối thế kỷ 19 và trùng tu năm 1940. Du khách sẽ có cơ hội chiêm ngưỡng Bức Tượng Kim Thân Phật Tổ cao 24m ngự trên đỉnh đồi.</li>
+              </ul>
+            </div>
+            <div class="itinerary-day">
+              <div class="itinerary-day-header">
+                <span class="day-badge">Ngày 2</span>
+                <h4>NHA TRANG – THÁP BÀ PONAGAR – BIỂN</h4>
+              </div>
+              <ul>
+                <li>Tiếp tục hành trình, tàu đưa quý khách đến tham quan điểm chính của chương trình là Khu du lịch đảo yến Đông Tằm — nơi được bao bọc bởi hai vách núi, bãi tắm hoang sơ, sạch đẹp.</li>
+                <li>Du khách tới đây tha hồ ngắm biển, ngắm núi, ngắm những ngôi nhà bảo vệ đảo yến. Ngoài ra du khách thỏa thích tắm biển, tắm nắng, câu cá, khám phá hệ sinh thái rạn san hô.</li>
+                <li>Buổi trưa: Dùng cơm trưa tại nhà hàng trên Đảo với các món hải sản đặc trưng.</li>
+                <li>Buổi chiều: Tham quan Bãi Tranh — một bãi biển đẹp yên tĩnh thơ mộng giữa biển, không gian lý tưởng để nghỉ ngơi.</li>
+                <li>16h00: Tàu đưa quý khách về lại cảng, trở về khách sạn nghỉ ngơi.</li>
+                <li>Buổi tối: Quý khách dùng bữa tối tại nhà hàng, tự do tham quan mua sắm tại khu phố đi bộ.</li>
+              </ul>
+            </div>
+            <div class="itinerary-day">
+              <div class="itinerary-day-header">
+                <span class="day-badge">Ngày 3</span>
+                <h4>NHA TRANG – ĐÀ LẠT</h4>
+              </div>
+              <ul>
+                <li>Sáng: Ăn sáng tại khách sạn, sau đó xe đưa đoàn đến trung tâm du lịch suối khoáng cao cấp I-Resort, với dịch vụ "Ôn tuyền thủy liệu pháp", ngâm nước khoáng nóng, tắm bùn khoáng.</li>
+                <li>Sau bữa trưa, đoàn rời Nha Trang khởi hành đi Đà Lạt theo đường Khánh Vĩnh – Đơn Dương, đi ngang qua các thôn bản của người dân tộc Raglai, Sông Tranh, Bến Lội qua vườn quốc gia Bi-Đoup núi bà.</li>
+                <li>Dừng trên đỉnh hòn Giao cho quý khách thưởng ngoạn phong cảnh núi rừng hùng vĩ.</li>
+                <li>Đến Đà Lạt, xe đưa đoàn đi qua khu vực Trại Mát vào tham quan Chùa Linh Phước (hay còn gọi là chùa Ve Chai) — một công trình kiến trúc Phật Giáo đặc sắc được trang trí chủ yếu bằng gốm sứ.</li>
+                <li>Chiều: Đến khách sạn nhận phòng nghỉ ngơi.</li>
+                <li>Buổi tối: Sau bữa ăn tối tại nhà hàng, quý khách tự do đi dạo, khám phá thành phố Đà Lạt về đêm, thưởng thức các món ăn ngon ở chợ đêm Âm Phủ, hương vị cà phê phố núi ở quán Thủy Tạ, ngắm cảnh Hồ Xuân Hương. Nghỉ đêm tại Đà Lạt.</li>
+              </ul>
+            </div>
+            <div class="itinerary-day">
+              <div class="itinerary-day-header">
+                <span class="day-badge">Ngày 4</span>
+                <h4>ĐÀ LẠT – CÁC THẮNG CẢNH – SÂN BAY LIÊN KHƯƠNG</h4>
+              </div>
+              <ul>
+                <li>Sáng: Ăn sáng tại khách sạn, sau đó xe đưa đoàn tham quan các thắng cảnh Đà Lạt: Thung Lũng Tình Yêu, Đồi Mộng Mơ hoặc Thiền Viện Trúc Lâm.</li>
+                <li>Buổi trưa: Ăn trưa tại nhà hàng.</li>
+                <li>Sau đó đưa đoàn ra sân bay Liên Khương làm thủ tục bay về Nội Bài.</li>
+                <li>Chuyến bay hạ cánh, xe và HDV của Dũng Ngân đón đoàn đưa về điểm đón ban đầu. Kết thúc chương trình tham quan Nha Trang. Chia tay và hẹn gặp lại quý khách ở những chương trình sau.</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Include -->
+          <div id="tab-include" class="tab-content" style="margin-top:24px;">
+            <div class="responsive-grid-2" style="gap:32px;">
+              <div>
+                <h4 style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:14px;"><i class="fas fa-check-circle" style="color:var(--primary);margin-right:6px;"></i>Tour bao gồm</h4>
+                <div class="include-list">
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Xe đời mới máy lạnh, cano cao tốc phục vụ theo chương trình</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Khách sạn đạt chuẩn 3-4 sao tại trung tâm Nha Trang, Đà Lạt (Ăn sáng buffet)</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Hướng dẫn viên chuyên nghiệp, tận tình phục vụ suốt chương trình</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Ăn trưa, ăn tối theo chương trình 190.000- 210.000đ/xuất ăn/người</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Vé tham quan tất cả các điểm trong chương trình</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Khăn lạnh, nước suối 50ml/ngày/người phục vụ theo chương trình</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Bảo hiểm du lịch theo luật pháp Việt Nam</span></div>
+                  
+
+                </div>
+              </div>
+              <div>
+                <h4 style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:14px;"><i class="fas fa-times-circle" style="color:#EF4444;margin-right:6px;"></i>Không bao gồm</h4>
+                <div class="include-list">
+                  <div class="include-item"><i class="fas fa-times ico-no"></i><span>Chi phí cá nhân ngoài chương trình</span></div>
+                  <div class="include-item"><i class="fas fa-times ico-no"></i><span>Đồ uống trong bữa ăn</span></div>
+                  <div class="include-item"><i class="fas fa-times ico-no"></i><span>Tip cho hướng dẫn viên và lái xe</span></div>
+                  <div class="include-item"><i class="fas fa-times ico-no"></i><span>Các dịch vụ không nêu trong chương trình</span></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Policy -->
+          <div id="tab-policy" class="tab-content" style="margin-top:24px;">
+            <div class="policy-item">
+              <h4>Chính sách đặt tour</h4>
+              <ul>
+                <li>Đặt trước ít nhất 5 ngày để đảm bảo chỗ</li>
+                <li>Đặt cọc 30% giá trị tour khi đăng ký</li>
+                <li>Thanh toán 100% trước ngày khởi hành 3 ngày</li>
+              </ul>
+            </div>
+            <div class="policy-item">
+              <h4>Chính sách hủy tour</h4>
+              <ul>
+                <li>Hủy trước 15 ngày: Hoàn 90%</li>
+                <li>Hủy trước 7-14 ngày: Hoàn 70%</li>
+                <li>Hủy trước 3-6 ngày: Hoàn 50%</li>
+                <li>Hủy dưới 3 ngày hoặc không đến: Không hoàn tiền</li>
+              </ul>
+            </div>
+            <div class="policy-item">
+              <h4>Lưu ý</h4>
+              <p>Giá tour có thể thay đổi tùy thời điểm và số lượng khách. Vui lòng liên hệ hotline 0982 557 559 để được báo giá chính xác nhất.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /detail-main -->
+
+      <!-- SIDEBAR -->
+      <div class="detail-sidebar">
+        <div class="booking-widget">
+          <div style="font-size:18px;font-weight:800;color:var(--primary);margin-bottom:12px;">
+            <i class="fas fa-phone-alt"></i> Liên hệ để báo giá
+          </div>
+          <p style="font-size:14px;color:var(--gray-600);margin-bottom:16px;">
+            Giá tour thay đổi theo thời điểm, số lượng khách và yêu cầu dịch vụ. Liên hệ để được tư vấn và báo giá tốt nhất!
+          </p>
+
+          <a href="tel:+84982557559" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:10px;font-size:16px;padding:14px;">
+            <i class="fas fa-phone"></i> Gọi 0982 557 559
+          </a>
+          <a href="../booking.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-bottom:10px;">
+            <i class="fas fa-calendar-check"></i> Đặt tour ngay
+          </a>
+          <a href="../contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">
+            <i class="fas fa-comment"></i> Gửi yêu cầu tư vấn
+          </a>
+
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-200);display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);">
+              <i class="fas fa-clock" style="color:var(--primary);"></i>
+              Thời gian: 4N3Đ
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);">
+              <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
+              Khởi hành: Từ Phú Thọ / Hà Nội
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);">
+              <i class="fas fa-shield-alt" style="color:var(--primary);"></i>
+              Bảo hiểm du lịch trọn tour
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);">
+              <i class="fas fa-headset" style="color:var(--primary);"></i>
+              Hỗ trợ 24/7: <strong>0982 557 559</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-wave">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,48 L0,48 Z" fill="#1B4332"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">DN <span>TRAVEL</span></div>
+        <p>DN Travel — Hành trình trọn vẹn, kỷ niệm đáng nhớ.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Tour du lịch</h4><ul><li><a href="../tours.html">Tour trong nước</a></li><li><a href="../tour-nuoc-ngoai.html">Tour nước ngoài</a></li><li><a href="../tour-combo.html">Combo &amp; KS</a></li><li><a href="../departure.html">Lịch khởi hành</a></li></ul></div>
+      <div class="footer-col"><h4>Về DN Travel</h4><ul><li><a href="../about.html">Giới thiệu</a></li><li><a href="../travel-guide.html">Cẩm nang</a></li><li><a href="../contact.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Liên hệ</h4><div class="footer-contact-item"><i class="fas fa-phone ico"></i><span>+84 982 557 559</span></div><div class="footer-contact-item"><i class="fas fa-envelope ico"></i><span>info@dntravel.vn</span></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+      <span>&copy; 2025 DN Travel. Tất cả quyền được bảo lưu.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

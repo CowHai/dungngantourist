@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Đà Nẵng - Huế - Quảng Bình | DN Travel</title>
+  <link rel="icon" type="image/x-icon" href="../assets/images/logo.ico" />
+  <meta name="description" content="Hành trình khám phá miền Trung: Bà Nà Hills, Cầu Vàng, cố đô Huế và hang động Quảng Bình." />
+  <meta property="og:title" content="Đà Nẵng - Huế - Quảng Bình | DN Travel" />
+  <meta property="og:description" content="Hành trình khám phá miền Trung: Bà Nà Hills, Cầu Vàng, cố đô Huế và hang động Quảng Bình." />
+  <meta property="og:image" content="../assets/images/logo.png" />
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .tour-tabs-wrapper { margin-bottom: 0; }
+    .include-list { display: flex; flex-direction: column; gap: 8px; }
+    .include-item { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--gray-700); }
+    .include-item .ico-yes { color: var(--primary); }
+    .include-item .ico-no { color: #EF4444; }
+    .policy-item { margin-bottom: 16px; }
+    .policy-item h4 { font-size: 15px; font-weight: 700; color: var(--gray-900); margin-bottom: 6px; }
+    .policy-item p, .policy-item li { font-size: 14px; color: var(--gray-600); line-height: 1.65; }
+    .policy-item ul { padding-left: 16px; display: flex; flex-direction: column; gap: 4px; }
+    .tour-highlights { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 24px; }
+    .highlight-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px; background: var(--primary-bg); border-radius: var(--radius); }
+    .highlight-item i { color: var(--primary); margin-top: 2px; flex-shrink: 0; }
+    .highlight-item p { font-size: 13px; color: var(--gray-700); font-weight: 500; }
+    @media (max-width: 768px) { .tour-highlights { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="container navbar-inner">
+    <a href="../index.html" class="navbar-logo">
+      <div class="logo-icon"><img src="../assets/images/logo.png" alt="DN Travel logo" /></div><div>
+      <span class="logo-text">DN <span>TRAVEL</span></span><div class="logo-sub">Khám phá những hành trình tuyệt vời</div></div>
+    </a>
+    <ul class="navbar-nav">
+      <li><a href="../index.html" class="nav-link">Trang chủ</a></li>
+      <li><a href="../tours.html" class="nav-link active">Tour trong nước</a></li>
+      <li><a href="../tour-nuoc-ngoai.html" class="nav-link">Tour nước ngoài</a></li>
+      <li><a href="../tour-combo.html" class="nav-link">Combo &amp; KS</a></li>
+      <li><a href="../about.html" class="nav-link">Về chúng tôi</a></li>
+    </ul>
+    <div class="navbar-cta">
+      <a href="../contact.html" class="btn btn-accent-outline btn-sm">Liên hệ ngay</a>
+    </div>
+    <button class="navbar-toggle" aria-label="Mở menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu">
+  <a href="../index.html" class="nav-link">Trang chủ</a>
+  <a href="../tours.html" class="nav-link active">Tour trong nước</a>
+  <a href="../tour-nuoc-ngoai.html" class="nav-link">Tour nước ngoài</a>
+  <a href="../tour-combo.html" class="nav-link">Combo &amp; KS</a>
+  <a href="../about.html" class="nav-link">Về chúng tôi</a>
+  <a href="../contact.html" class="nav-link">Liên hệ</a>
+</div>
+
+<!-- BREADCRUMB + TITLE -->
+<div style="padding-top:68px; background:var(--gray-50); border-bottom:1px solid var(--gray-200);">
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="../index.html">Trang chủ</a>
+      <span class="sep"><i class="fas fa-chevron-right" style="font-size:10px;"></i></span>
+      <a href="../tours.html">Tour trong nước</a>
+      <span class="sep"><i class="fas fa-chevron-right" style="font-size:10px;"></i></span>
+      <span class="current">Đà Nẵng - Huế - Quảng Bình</span>
+    </div>
+    <div style="padding: 20px 0 24px; display:flex; align-items:flex-start; justify-content:space-between; gap:20px; flex-wrap:wrap;">
+      <div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px;">
+          <span class="badge badge-orange">Khám phá</span>
+        </div>
+        <h1 style="font-size:clamp(22px,3.5vw,32px); font-weight:800; color:var(--gray-900); line-height:1.3;">Tour Đà Nẵng - Huế - Quảng Bình</h1>
+        <div style="display:flex; align-items:center; gap:20px; margin-top:12px; flex-wrap:wrap;">
+          <div style="display:flex;align-items:center;gap:5px;font-size:14px;color:var(--gray-500);">
+            <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
+            Đà Nẵng, Huế, Quảng Bình
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:14px;color:var(--gray-500);">
+            <i class="fas fa-clock" style="color:var(--primary);"></i>
+            5N4Đ
+          </div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:14px;color:var(--gray-500);">
+            <i class="fas fa-flag" style="color:var(--primary);"></i>
+            Miền Trung
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;gap:10px;flex-shrink:0;">
+        <a href="../contact.html" class="btn btn-primary btn-sm"><i class="fas fa-phone"></i> Liên hệ tư vấn</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<section class="section-sm">
+  <div class="container">
+    <div class="detail-layout">
+
+      <!-- MAIN -->
+      <div class="detail-main">
+
+        <!-- Gallery -->
+        <div class="gallery-grid" style="position:relative;">
+          <div class="main-img">
+            <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=800&q=80" alt="Đà Nẵng - Huế - Quảng Bình" />
+          </div>
+        </div>
+
+        <!-- Description -->
+        <div style="margin: 24px 0; padding: 16px; background: var(--primary-bg); border-radius: var(--radius-lg); font-size: 15px; color: var(--gray-700); line-height: 1.7;">
+          Hành trình khám phá miền Trung: Bà Nà Hills, Cầu Vàng, cố đô Huế và hang động Quảng Bình.
+        </div>
+
+        <!-- Tabs -->
+        <div class="tour-tabs-wrapper">
+          <div class="tour-tabs">
+            <div class="tour-tab active" data-tab="tab-itinerary">Lịch trình</div>
+            <div class="tour-tab" data-tab="tab-include">Bao gồm / Không bao gồm</div>
+            <div class="tour-tab" data-tab="tab-policy">Chính sách</div>
+          </div>
+
+          <!-- Itinerary -->
+          <div id="tab-itinerary" class="tab-content active" style="margin-top:24px;">
+            
+            <div class="itinerary-day">
+              <div class="itinerary-day-header">
+                <span class="day-badge">Ngày 1</span>
+                <h4>PHÚ THỌ – ĐÀ NẴNG – BÁN ĐẢO SƠN TRÀ</h4>
+              </div>
+              <ul>
+                
+                <li>Sau khi ăn trưa xe đưa quý khách đến khách sạn Nhận phòng khách sạn nghỉ ngơi.(trương trình áp dụng cho các đoàn bay buổi sáng) 14h : Khởi hành đi Bán Đảo Sơn Trà (Monkey Mountain) quay một vòng quanh Bán Đảo để mục kích toàn cảnh phố biển Đà Nẵng trên cao, viếng Linh Ứng Tự - nơi có tượng Phật Bà 65m cao nhất Việt Nam 16h -18h : quý khách tự do tắm biển Mỹ Khê Đà Nẵng 19h : xe đưa đoàn đến nhà hàng Ăn tối sau bữa . Trãi nghiệm cảm giác với Vòng quay Mặt trời SUN WHEEL – Top 10 vòng quay cao nhất Thế Giới, chiêm ngưởng vẻ đẹp Đà Thành về đêm rực rỡ ánh đèn. (Vé Sun Wheel tự túc)</li>
+                <li>Nghỉ đêm tại Đà Nẵng</li>
+              </ul>
+            </div>
+            <div class="itinerary-day">
+              <div class="itinerary-day-header">
+                <span class="day-badge">Ngày 2</span>
+                <h4>BÀ NÀ HILLS – HỘI AN</h4>
+              </div>
+              <ul>
+                
+                <li>6h30 : quý khách ăn sáng tại khách sạn 7h30 : xe và HDV đón quý khách tại sảnh khách sạn. Khởi hành đi Bà Nà - Núi Chúa, nơi có những khoảnh khoắc giao mùa bất ngờ Xuân - Hạ - Thu - Đông trong một ngày. Qúy khách sẽ tận hưởng cảm giác bồng bền khi ngồi trên Cabin lơ lững giữa chừng mây. Viếng chùa Linh Ứng với tượng Phật Thích Ca cao 27m, viếng đền thờ Bà Chúa Mẫu Thượng Ngàn.Tham quan Cầu vàng - HOT Cây cầu độc đáo nằm trong vườn Thiên Thai ở Bà Nà Hill</li>
+                <li>được xây dựng trên độ cao 1.400m so với mặt nước biển, cây cầu gồm 8 nhịp và có độ dài là 150m. Cây cầu được nâng đỡ bởi đôi bàn tay khổng lồ. Người đi như lạc giữa tiên cảnh nơi có mây, trời bao la.Tham gia vui chơi tại công viên Fantasy Park: với các trò chơi phiêu lưu mới lạ như: Vòng Quay Tình Yêu, Phi Công Skiver, Đường Đua Lửa, Ngôi Nhà Ma và Khu trưng bày hơn 40 tượng sáp những nhân vật nổi tiếng trên thế giớ 11h : Ăn trưa nhà hàng tại banal 14h : quý khách xuống cáp trở về thành phố Đà Nẵng xe đóng quý khách tại ga cáp treo đưa về khách sạn.nghỉ nghơi và quý khách tự do tắm biển</li>
+                <li>10h00: Chia tay làng điêu khắc đá</li>
+                <li>18h30 : xe và HDV đón đoàn tại sảnh khách sạn, Khởi hành vào tham quan Hội An . 19h30 : Ăn tối Đặc sản Hội An: Cao lầu, bánh bao bánh vạc, hoành thánh, 20h30 : .. bách bộ tham quan và mua sắm Phố Cổ với: Chùa Cầu Nhật Bản, Nhà Cổ hàng trăm năm tuổi, Hội Quán Phước Kiến &amp; Xưởng thủ công mỹ nghệ 22h30 : Khởi hành về lại Đà Nẵng. Tự do thưởng ngoạn du thuyền trên sông Hàn ngắm cảnh Đà Thành về đêm, chụp ảnh Cầu Quay Sông Hàn, cầu Rồng phun lửa và nước vào cuối tuần. Ngủ KS tại Đà Nẵng.</li>
+              </ul>
+            </div>
+            <div class="itinerary-day">
+              <div class="itinerary-day-header">
+                <span class="day-badge">Ngày 3</span>
+                <h4>ĐÀ NẴNG – HUẾ</h4>
+              </div>
+              <ul>
+                
+                <li>13:30 :. Tham quan Lăng Khải Định - công trình mang nhiều trường phái kiến trúc khác nhau, kết hợp Đông - Tây, Âu - Á, Cổ Kim độc đáo so với các công trình kiến trúc truyền thống Việt Nam..sau đó doàn thăm quan kinh thành huế Tối: Ăn tối nhà hàng với đặc sản xứ Huế (Bánh bèo, lọc, nậm, khoái,...). Quý khách xuống thuyền Rồng để thưởng thức Ca Huế trên sông Hương – nét văn hóa độc đáo của xứ Huế.</li>
+              </ul>
+            </div>
+            <div class="itinerary-day">
+              <div class="itinerary-day-header">
+                <span class="day-badge">Ngày 4</span>
+                <h4>HUẾ – ĐỘNG PHONG NHA</h4>
+              </div>
+              <ul>
+                
+                <li>8h : xe và HDV đón đoàn Rời Huế đi Phong Nha - Kẻ Bàng.</li>
+                <li>Viếng thăm Thánh Địa La Vang (Được phong tặng là Tiểu Vương Cung Thánh Đường) và ngang qua Vĩ tuyến 17 Sông Bến Hải - Cầu Hiền Lương huyền thoại. 11h30 : Ăn trưa nhà hàng tại Phong Nha. 13h : quý khách nhận phòng khách sạn nghỉ nghơi Chiều: Ngồi thuyền ngược sông Son chinh phục động Phong Nha: hang Bi Ký, Cô Tiên &amp; Cung Đình dưới sâu lòng núi nơi có con sông ngầm từ Lào chảy sang, chiêm ngưỡng các khối thạch nhũ tuyệt đẹp được kiến tạo bởi thiên nhiên qua hàng ngàn thiên niên kỷ 16h : xe đưa đoàn về lại khách sạn , 19h : ăn tối tại nhà hàng Nghỉ đêm tại quảng bình</li>
+              </ul>
+            </div>
+            <div class="itinerary-day">
+              <div class="itinerary-day-header">
+                <span class="day-badge">Ngày 5</span>
+                <h4>QUẢNG BÌNH – PHÚ THỌ</h4>
+              </div>
+              <ul>
+                
+                <li>7H : ăn sáng tại khách sạn 8h30 : quý khách trả phòng ,xe và HDV đón đoàn khởi hành trở về phú Thọ</li>
+                <li>Trưa: trên dường về đoàn dừng chân tại thành phố vinh ăn trưa. Sau bữa trưa quý khách nghỉ tại chỗ đôi chút, sau đó quý khách tập chung r a xe tiếp tục hành trình về với Phú Thọ</li>
+                <li>19h : dự kiến xe đưa quý khách về đến điểm đón ban đầu HDV chia tay và cảm ơn đoàn .và hẹn phục vụ doàn trong các tour tiếp theo</li>
+              </ul>
+            </div>
+
+          
+
+          </div>
+
+          <!-- Include -->
+          <div id="tab-include" class="tab-content" style="margin-top:24px;">
+            <div class="responsive-grid-2" style="gap:32px;">
+              <div>
+                <h4 style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:14px;"><i class="fas fa-check-circle" style="color:var(--primary);margin-right:6px;"></i>Tour bao gồm</h4>
+                <div class="include-list">
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Xe vận chuyển tốt đời mới phục vụ theo chương trình.</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Ngủ 2 khách/phòng khách sạn tiện nghi</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Ăn các bữa theo tour: 04 bữa sáng buffet,</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Ăn chính 190.000/bưa/khách.</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Vé các điểm tham quan.</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Thuyền Động Phong Nha</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Vé cáp treo banall</span></div>
+                  <div class="include-item"><i class="fas fa-check ico-yes"></i><span>Ca Huế trên sông Hương</span></div>
+
+                </div>
+              </div>
+              <div>
+                <h4 style="font-size:15px;font-weight:700;color:var(--gray-900);margin-bottom:14px;"><i class="fas fa-times-circle" style="color:#EF4444;margin-right:6px;"></i>Không bao gồm</h4>
+                <div class="include-list">
+                  <div class="include-item"><i class="fas fa-times ico-no"></i><span>Chi phí cá nhân ngoài chương trình</span></div>
+                  <div class="include-item"><i class="fas fa-times ico-no"></i><span>Đồ uống trong bữa ăn</span></div>
+                  <div class="include-item"><i class="fas fa-times ico-no"></i><span>Tip cho hướng dẫn viên và lái xe</span></div>
+                  <div class="include-item"><i class="fas fa-times ico-no"></i><span>Các dịch vụ không nêu trong chương trình</span></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Policy -->
+          <div id="tab-policy" class="tab-content" style="margin-top:24px;">
+            <div class="policy-item">
+              <h4>Chính sách đặt tour</h4>
+              <ul>
+                <li>Đặt trước ít nhất 5 ngày để đảm bảo chỗ</li>
+                <li>Đặt cọc 30% giá trị tour khi đăng ký</li>
+                <li>Thanh toán 100% trước ngày khởi hành 3 ngày</li>
+              </ul>
+            </div>
+            <div class="policy-item">
+              <h4>Chính sách hủy tour</h4>
+              <ul>
+                <li>Hủy trước 15 ngày: Hoàn 90%</li>
+                <li>Hủy trước 7-14 ngày: Hoàn 70%</li>
+                <li>Hủy trước 3-6 ngày: Hoàn 50%</li>
+                <li>Hủy dưới 3 ngày hoặc không đến: Không hoàn tiền</li>
+              </ul>
+            </div>
+            <div class="policy-item">
+              <h4>Lưu ý</h4>
+              <p>Giá tour có thể thay đổi tùy thời điểm và số lượng khách. Vui lòng liên hệ hotline 0982 557 559 để được báo giá chính xác nhất.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /detail-main -->
+
+      <!-- SIDEBAR -->
+      <div class="detail-sidebar">
+        <div class="booking-widget">
+          <div style="font-size:18px;font-weight:800;color:var(--primary);margin-bottom:12px;">
+            <i class="fas fa-phone-alt"></i> Liên hệ để báo giá
+          </div>
+          <p style="font-size:14px;color:var(--gray-600);margin-bottom:16px;">
+            Giá tour thay đổi theo thời điểm, số lượng khách và yêu cầu dịch vụ. Liên hệ để được tư vấn và báo giá tốt nhất!
+          </p>
+
+          <a href="tel:+84982557559" class="btn btn-primary" style="width:100%;justify-content:center;margin-bottom:10px;font-size:16px;padding:14px;">
+            <i class="fas fa-phone"></i> Gọi 0982 557 559
+          </a>
+          <a href="../booking.html" class="btn btn-outline" style="width:100%;justify-content:center;margin-bottom:10px;">
+            <i class="fas fa-calendar-check"></i> Đặt tour ngay
+          </a>
+          <a href="../contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">
+            <i class="fas fa-comment"></i> Gửi yêu cầu tư vấn
+          </a>
+
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-200);display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);">
+              <i class="fas fa-clock" style="color:var(--primary);"></i>
+              Thời gian: 5N4Đ
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);">
+              <i class="fas fa-map-marker-alt" style="color:var(--primary);"></i>
+              Khởi hành: Từ Phú Thọ / Hà Nội
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);">
+              <i class="fas fa-shield-alt" style="color:var(--primary);"></i>
+              Bảo hiểm du lịch trọn tour
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--gray-600);">
+              <i class="fas fa-headset" style="color:var(--primary);"></i>
+              Hỗ trợ 24/7: <strong>0982 557 559</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-wave">
+    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,48 L0,48 Z" fill="#1B4332"/>
+    </svg>
+  </div>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo-text">DN <span>TRAVEL</span></div>
+        <p>DN Travel — Hành trình trọn vẹn, kỷ niệm đáng nhớ.</p>
+        <div class="footer-socials">
+          <a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="footer-social-btn"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Tour du lịch</h4><ul><li><a href="../tours.html">Tour trong nước</a></li><li><a href="../tour-nuoc-ngoai.html">Tour nước ngoài</a></li><li><a href="../tour-combo.html">Combo &amp; KS</a></li><li><a href="../departure.html">Lịch khởi hành</a></li></ul></div>
+      <div class="footer-col"><h4>Về DN Travel</h4><ul><li><a href="../about.html">Giới thiệu</a></li><li><a href="../travel-guide.html">Cẩm nang</a></li><li><a href="../contact.html">Liên hệ</a></li></ul></div>
+      <div class="footer-col"><h4>Liên hệ</h4><div class="footer-contact-item"><i class="fas fa-phone ico"></i><span>+84 982 557 559</span></div><div class="footer-contact-item"><i class="fas fa-envelope ico"></i><span>info@dntravel.vn</span></div></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
+      <span>&copy; 2025 DN Travel. Tất cả quyền được bảo lưu.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

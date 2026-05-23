@@ -3,23 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Danh sách tour — DN Travel</title>
-  <meta name="description" content="Khám phá hàng trăm tour du lịch trong nước và quốc tế chất lượng cao tại DN Travel." />
+  <title>Tour trong nước — DN Travel</title>
+  <meta name="description" content="Khám phá các tour du lịch trong nước chất lượng cao tại DN Travel. Hạ Long, Sa Pa, Đà Lạt, Nha Trang và nhiều điểm đến hấp dẫn khác." />
   <link rel="icon" type="image/x-icon" href="assets/images/logo.ico" />
-  <meta property="og:title" content="Danh sách tour — DN Travel" />
-  <meta property="og:description" content="Khám phá hàng trăm tour du lịch trong nước và quốc tế chất lượng cao tại DN Travel." />
+  <meta property="og:title" content="Tour trong nước — DN Travel" />
+  <meta property="og:description" content="Khám phá các tour du lịch trong nước chất lượng cao tại DN Travel." />
   <meta property="og:image" content="assets/images/logo.png" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    .fade-in-target { opacity: 0; transform: translateY(16px); transition: opacity 0.4s ease, transform 0.4s ease; }
-    .fade-in-target.visible { opacity: 1; transform: none; }
-    .sort-select { border: 1.5px solid var(--gray-200); border-radius: var(--radius); padding: 7px 12px; font-size: 14px; color: var(--gray-700); outline: none; cursor: pointer; background: white; }
-    .sort-select:focus { border-color: var(--primary); }
-    .filter-tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--primary-bg); color: var(--primary); border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; }
-    .filter-tag i { font-size: 10px; }
-    .filter-tag:hover { background: var(--primary); color: white; }
-    .active-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .filter-tag { display: inline-flex; align-items: center; gap: 6px; padding: 5px 12px; background: var(--primary-bg); color: var(--primary); border-radius: 20px; font-size: 13px; font-weight: 500; cursor: pointer; transition: var(--transition); }
+    .filter-tag:hover, .filter-tag.active { background: var(--primary); color: white; }
+    .region-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
   </style>
 </head>
 <body>
@@ -34,8 +29,8 @@
     <ul class="navbar-nav">
       <li><a href="index.html" class="nav-link">Trang chủ</a></li>
       <li><a href="tours.html" class="nav-link active">Tour trong nước</a></li>
-      <li><a href="tours.html?type=international" class="nav-link">Tour nước ngoài</a></li>
-      <li><a href="tours.html?type=combo" class="nav-link">Combo &amp; KS</a></li>
+      <li><a href="coming-soon.html" class="nav-link">Tour nước ngoài</a></li>
+      <li><a href="coming-soon.html" class="nav-link">Combo &amp; KS</a></li>
       <li><a href="about.html" class="nav-link">Về chúng tôi</a></li>
     </ul>
     <div class="navbar-cta">
@@ -49,8 +44,8 @@
 <div class="mobile-menu">
   <a href="index.html" class="nav-link">Trang chủ</a>
   <a href="tours.html" class="nav-link active">Tour trong nước</a>
-  <a href="tours.html?type=international" class="nav-link">Tour nước ngoài</a>
-  <a href="tours.html?type=combo" class="nav-link">Combo &amp; KS</a>
+  <a href="coming-soon.html" class="nav-link">Tour nước ngoài</a>
+  <a href="coming-soon.html" class="nav-link">Combo &amp; KS</a>
   <a href="about.html" class="nav-link">Về chúng tôi</a>
   <a href="contact.html" class="nav-link">Liên hệ</a>
 </div>
@@ -64,314 +59,416 @@
       <span class="current">Tour trong nước</span>
     </div>
     <h1>Tour du lịch trong nước</h1>
-    <p>Khám phá vẻ đẹp Việt Nam qua hơn 200+ tour chất lượng cao</p>
+    <p>Khám phá vẻ đẹp Việt Nam với 21 tour chất lượng cao từ DN Travel</p>
   </div>
 </div>
 
 <!-- MAIN CONTENT -->
 <section class="section-sm">
   <div class="container">
-    <div class="tours-layout">
 
-      <!-- ── SIDEBAR ── -->
-      <aside class="sidebar">
+    <!-- Region filters -->
+    <div class="region-filters">
+      <span class="filter-tag active" data-region="all">Tất cả</span>
+      <span class="filter-tag" data-region="mien-bac">Miền Bắc</span>
+      <span class="filter-tag" data-region="tay-bac">Tây Bắc</span>
+      <span class="filter-tag" data-region="mien-trung">Miền Trung</span>
+      <span class="filter-tag" data-region="mien-nam">Miền Nam</span>
+      <span class="filter-tag" data-region="tay-nguyen">Tây Nguyên</span>
+    </div>
 
-        <div class="filter-card">
-          <h3>Tìm kiếm <span class="toggle">Xóa hết</span></h3>
-          <div class="input-icon" style="position:relative;">
-            <i class="fas fa-search" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--gray-400);font-size:14px;z-index:1;"></i>
-            <input type="text" placeholder="Tên tour, điểm đến..." style="width:100%;border:1.5px solid var(--gray-200);border-radius:var(--radius);padding:9px 12px 9px 34px;font-size:14px;outline:none;transition:var(--transition);" />
+    <!-- Tour Grid -->
+    <div class="tours-grid" id="tours-grid">
+
+      <!-- Tour: Hạ Long - Cát Bà -->
+      <div class="tour-card" data-region="mien-bac">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=500&q=75" alt="Hạ Long - Cát Bà" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển đảo</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Hạ Long, Cát Bà, Quảng Ninh <span class="dot"></span> Miền Bắc</div>
+          <h3 class="tour-card-name"><a href="tour/ha-long-cat-ba-3n2d.html">Hạ Long - Cát Bà</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
           </div>
         </div>
+      </div>
 
-        <div class="filter-card">
-          <h3>Điểm đến</h3>
-          <div class="filter-body">
-            <label class="filter-option"><input type="checkbox" checked /> Miền Bắc</label>
-            <label class="filter-option"><input type="checkbox" /> Miền Trung</label>
-            <label class="filter-option"><input type="checkbox" /> Miền Nam</label>
-            <label class="filter-option"><input type="checkbox" /> Tây Nguyên</label>
-            <label class="filter-option"><input type="checkbox" /> Đông Nam Á</label>
-            <label class="filter-option"><input type="checkbox" /> Đông Bắc Á</label>
+      <!-- Tour: Hạ Long - Cô Tô -->
+      <div class="tour-card" data-region="mien-bac">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=500&q=75" alt="Hạ Long - Cô Tô" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển đảo</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Hạ Long, Cô Tô, Quảng Ninh <span class="dot"></span> Miền Bắc</div>
+          <h3 class="tour-card-name"><a href="tour/ha-long-co-to-4n3d.html">Hạ Long - Cô Tô</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 4N3Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
           </div>
         </div>
+      </div>
 
-        <div class="filter-card">
-          <h3>Loại tour</h3>
-          <div class="filter-body">
-            <label class="filter-option"><input type="checkbox" checked /> Trekking &amp; khám phá</label>
-            <label class="filter-option"><input type="checkbox" checked /> Biển đảo &amp; nghỉ dưỡng</label>
-            <label class="filter-option"><input type="checkbox" /> Văn hóa &amp; lịch sử</label>
-            <label class="filter-option"><input type="checkbox" /> Ẩm thực &amp; trải nghiệm</label>
-            <label class="filter-option"><input type="checkbox" /> Gia đình &amp; trẻ em</label>
-            <label class="filter-option"><input type="checkbox" /> Tuần trăng mật</label>
+      <!-- Tour: Vân Đồn - Cô Tô -->
+      <div class="tour-card" data-region="mien-bac">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=500&q=75" alt="Vân Đồn - Cô Tô" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển đảo</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Cô Tô, Quảng Ninh <span class="dot"></span> Miền Bắc</div>
+          <h3 class="tour-card-name"><a href="tour/van-don-co-to-3n2d.html">Vân Đồn - Cô Tô</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
           </div>
         </div>
+      </div>
 
-        <div class="filter-card">
-          <h3>Thời gian</h3>
-          <div class="filter-body">
-            <label class="filter-option"><input type="checkbox" /> 1–2 ngày</label>
-            <label class="filter-option"><input type="checkbox" checked /> 3–4 ngày</label>
-            <label class="filter-option"><input type="checkbox" /> 5–7 ngày</label>
-            <label class="filter-option"><input type="checkbox" /> Trên 7 ngày</label>
+      <!-- Tour: Móng Cái - Trà Cổ - Hạ Long -->
+      <div class="tour-card" data-region="mien-bac">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1573790387438-4da905039392?auto=format&fit=crop&w=500&q=75" alt="Móng Cái - Trà Cổ - Hạ Long" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-orange">Khám phá</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Móng Cái, Trà Cổ, Hạ Long <span class="dot"></span> Miền Bắc</div>
+          <h3 class="tour-card-name"><a href="tour/mong-cai-tra-co-ha-long-3n2d.html">Móng Cái - Trà Cổ - Hạ Long</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
           </div>
         </div>
+      </div>
 
-        <div class="filter-card">
-          <h3>Mức giá</h3>
-          <div class="price-range">
-            <input type="range" id="price-range" min="500000" max="30000000" value="15000000" step="500000" />
-            <div class="range-labels">
-              <span>500.000đ</span>
-              <span id="price-display">15.000.000đ</span>
-            </div>
+      <!-- Tour: Đảo Cát Bà -->
+      <div class="tour-card" data-region="mien-bac">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?auto=format&fit=crop&w=500&q=75" alt="Đảo Cát Bà" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển đảo</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Cát Bà, Hải Phòng <span class="dot"></span> Miền Bắc</div>
+          <h3 class="tour-card-name"><a href="tour/cat-ba-3n2d.html">Đảo Cát Bà</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
           </div>
         </div>
+      </div>
 
-        <div class="filter-card">
-          <h3>Đánh giá</h3>
-          <div class="filter-body">
-            <label class="filter-option"><input type="checkbox" /> <span style="color:#F59E0B;">★★★★★</span> 5 sao</label>
-            <label class="filter-option"><input type="checkbox" checked /> <span style="color:#F59E0B;">★★★★</span>☆ 4+ sao</label>
-            <label class="filter-option"><input type="checkbox" /> <span style="color:#F59E0B;">★★★</span>☆☆ 3+ sao</label>
+      <!-- Tour: Chùa Tam Chúc - Đầm Vân Long -->
+      <div class="tour-card" data-region="mien-bac">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1570366583862-f91883984fde?auto=format&fit=crop&w=500&q=75" alt="Chùa Tam Chúc - Đầm Vân Long" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Tâm linh</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Hà Nam, Ninh Bình <span class="dot"></span> Miền Bắc</div>
+          <h3 class="tour-card-name"><a href="tour/chua-tam-chuc-van-long-1n.html">Chùa Tam Chúc - Đầm Vân Long</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 1 Ngày</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
           </div>
         </div>
+      </div>
 
-        <button class="btn btn-primary" style="width:100%;">
-          <i class="fas fa-filter"></i> Áp dụng bộ lọc
-        </button>
-
-      </aside>
-
-      <!-- ── MAIN ── -->
-      <div class="tours-main">
-
-        <!-- Toolbar -->
-        <div class="tours-toolbar">
-          <div class="count">Tìm thấy <strong>148</strong> tour phù hợp</div>
-          <div style="display:flex;align-items:center;gap:12px;">
-            <select class="sort-select">
-              <option>Sắp xếp: Phổ biến nhất</option>
-              <option>Giá thấp đến cao</option>
-              <option>Giá cao đến thấp</option>
-              <option>Mới nhất</option>
-              <option>Đánh giá cao nhất</option>
-            </select>
-            <div class="view-toggle">
-              <button data-view="grid" class="active" title="Dạng lưới"><i class="fas fa-grip-horizontal"></i></button>
-              <button data-view="list" title="Dạng danh sách"><i class="fas fa-list"></i></button>
-            </div>
+      <!-- Tour: Sa Pa 3N2Đ -->
+      <div class="tour-card" data-region="tay-bac">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=75" alt="Sa Pa" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Trekking</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Sa Pa, Lào Cai <span class="dot"></span> Tây Bắc</div>
+          <h3 class="tour-card-name"><a href="tour/sapa-3n2d.html">Sa Pa</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
           </div>
         </div>
+      </div>
 
-        <!-- Active filters -->
-        <div class="active-filters">
-          <span class="filter-tag">Miền Bắc <i class="fas fa-times"></i></span>
-          <span class="filter-tag">3–4 ngày <i class="fas fa-times"></i></span>
-          <span class="filter-tag">4+ sao <i class="fas fa-times"></i></span>
-          <span class="filter-tag">Trekking <i class="fas fa-times"></i></span>
-          <span class="filter-tag">Biển đảo <i class="fas fa-times"></i></span>
+      <!-- Tour: Sa Pa - Fansipan 2N1Đ -->
+      <div class="tour-card" data-region="tay-bac">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=75" alt="Sa Pa - Fansipan" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Trekking</span></div>
         </div>
-
-        <!-- Tour Grid -->
-        <div class="tours-grid" id="tours-grid">
-
-          <div class="tour-card">
-            <div class="tour-card-img">
-              <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=500&q=75" alt="Sa Pa" loading="lazy" />
-              <div class="card-badge"><span class="badge badge-green">Trekking</span></div>
-              <div class="card-save"><i class="far fa-heart"></i></div>
-            </div>
-            <div class="tour-card-body">
-              <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Sa Pa, Lào Cai <span class="dot"></span> Miền Bắc</div>
-              <h3 class="tour-card-name"><a href="tour-detail.html">Sa Pa — Chinh phục Fansipan &amp; Bản Cát Cát</a></h3>
-              <div class="tour-card-info">
-                <span><i class="fas fa-clock"></i> 3N2Đ</span>
-                <span><i class="fas fa-users"></i> Max 15</span>
-              </div>
-              <div class="tour-card-footer">
-                <div class="tour-price">3.200.000đ<small>/người</small></div>
-                <div class="tour-rating"><i class="fas fa-star star"></i> 4.9 (218)</div>
-              </div>
-            </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Sa Pa, Lào Cai <span class="dot"></span> Tây Bắc</div>
+          <h3 class="tour-card-name"><a href="tour/sapa-fansipan-2n1d.html">Sa Pa - Fansipan</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 2N1Đ</span>
           </div>
-
-          <div class="tour-card">
-            <div class="tour-card-img">
-              <img src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=500&q=75" alt="Hạ Long" loading="lazy" />
-              <div class="card-badge"><span class="badge badge-orange">Hot</span></div>
-              <div class="card-save"><i class="far fa-heart"></i></div>
-            </div>
-            <div class="tour-card-body">
-              <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Hạ Long, Quảng Ninh <span class="dot"></span> Miền Bắc</div>
-              <h3 class="tour-card-name"><a href="tour-detail.html">Vịnh Hạ Long — Du thuyền sang trọng 5 sao</a></h3>
-              <div class="tour-card-info">
-                <span><i class="fas fa-clock"></i> 2N1Đ</span>
-                <span><i class="fas fa-users"></i> Max 30</span>
-              </div>
-              <div class="tour-card-footer">
-                <div class="tour-price">4.200.000đ<small>/người</small></div>
-                <div class="tour-rating"><i class="fas fa-star star"></i> 4.9 (341)</div>
-              </div>
-            </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
           </div>
-
-          <div class="tour-card">
-            <div class="tour-card-img">
-              <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=500&q=75" alt="Hội An" loading="lazy" />
-              <div class="card-badge"><span class="badge badge-green">Văn hóa</span></div>
-              <div class="card-save"><i class="far fa-heart"></i></div>
-            </div>
-            <div class="tour-card-body">
-              <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Hội An, Quảng Nam <span class="dot"></span> Miền Trung</div>
-              <h3 class="tour-card-name"><a href="tour-detail.html">Phố cổ Hội An — Đèn lồng &amp; Ẩm thực</a></h3>
-              <div class="tour-card-info">
-                <span><i class="fas fa-clock"></i> 4N3Đ</span>
-                <span><i class="fas fa-users"></i> Max 20</span>
-              </div>
-              <div class="tour-card-footer">
-                <div class="tour-price">3.500.000đ<small>/người</small></div>
-                <div class="tour-rating"><i class="fas fa-star star"></i> 4.9 (203)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="tour-card-img">
-              <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=500&q=75" alt="Đà Lạt" loading="lazy" />
-              <div class="card-badge"><span class="badge badge-green">Khám phá</span></div>
-              <div class="card-save"><i class="far fa-heart"></i></div>
-            </div>
-            <div class="tour-card-body">
-              <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Đà Lạt, Lâm Đồng <span class="dot"></span> Tây Nguyên</div>
-              <h3 class="tour-card-name"><a href="tour-detail.html">Đà Lạt — Thành phố sương mù thơ mộng</a></h3>
-              <div class="tour-card-info">
-                <span><i class="fas fa-clock"></i> 3N2Đ</span>
-                <span><i class="fas fa-users"></i> Max 20</span>
-              </div>
-              <div class="tour-card-footer">
-                <div class="tour-price">2.800.000đ<small>/người</small></div>
-                <div class="tour-rating"><i class="fas fa-star star"></i> 4.7 (156)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="tour-card-img">
-              <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=500&q=75" alt="Phú Quốc" loading="lazy" />
-              <div class="card-badge"><span class="badge badge-orange">Khuyến mãi</span></div>
-              <div class="card-save"><i class="far fa-heart"></i></div>
-            </div>
-            <div class="tour-card-body">
-              <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Phú Quốc, Kiên Giang <span class="dot"></span> Miền Nam</div>
-              <h3 class="tour-card-name"><a href="tour-detail.html">Phú Quốc — Đảo ngọc nghỉ dưỡng cao cấp</a></h3>
-              <div class="tour-card-info">
-                <span><i class="fas fa-clock"></i> 4N3Đ</span>
-                <span><i class="fas fa-users"></i> Max 20</span>
-              </div>
-              <div class="tour-card-footer">
-                <div class="tour-price">5.800.000đ<small>/người</small></div>
-                <div class="tour-rating"><i class="fas fa-star star"></i> 4.7 (189)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="tour-card-img">
-              <img src="https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?auto=format&fit=crop&w=500&q=75" alt="Mộc Châu" loading="lazy" />
-              <div class="card-badge"><span class="badge badge-green">Trekking</span></div>
-              <div class="card-save"><i class="far fa-heart"></i></div>
-            </div>
-            <div class="tour-card-body">
-              <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Mộc Châu, Sơn La <span class="dot"></span> Tây Bắc</div>
-              <h3 class="tour-card-name"><a href="tour-detail.html">Khám phá Mộc Châu — Mùa hoa cải trắng</a></h3>
-              <div class="tour-card-info">
-                <span><i class="fas fa-clock"></i> 3N2Đ</span>
-                <span><i class="fas fa-users"></i> Max 20</span>
-              </div>
-              <div class="tour-card-footer">
-                <div class="tour-price">2.900.000đ<small>/người</small></div>
-                <div class="tour-rating"><i class="fas fa-star star"></i> 4.8 (126)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="tour-card-img">
-              <img src="https://images.unsplash.com/photo-1562602833-0f4ab2fc46e3?auto=format&fit=crop&w=500&q=75" alt="Nha Trang" loading="lazy" />
-              <div class="card-badge"><span class="badge badge-green">Biển đảo</span></div>
-              <div class="card-save"><i class="far fa-heart"></i></div>
-            </div>
-            <div class="tour-card-body">
-              <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Nha Trang, Khánh Hòa <span class="dot"></span> Miền Trung</div>
-              <h3 class="tour-card-name"><a href="tour-detail.html">Nha Trang — 4 đảo hoang sơ kỳ bí</a></h3>
-              <div class="tour-card-info">
-                <span><i class="fas fa-clock"></i> 3N2Đ</span>
-                <span><i class="fas fa-users"></i> Max 25</span>
-              </div>
-              <div class="tour-card-footer">
-                <div class="tour-price">3.100.000đ<small>/người</small></div>
-                <div class="tour-rating"><i class="fas fa-star star"></i> 4.6 (142)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="tour-card-img">
-              <img src="https://images.unsplash.com/photo-1570366583862-f91883984fde?auto=format&fit=crop&w=500&q=75" alt="Mũi Né" loading="lazy" />
-              <div class="card-badge"><span class="badge badge-orange">Hot</span></div>
-              <div class="card-save"><i class="far fa-heart"></i></div>
-            </div>
-            <div class="tour-card-body">
-              <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Mũi Né, Bình Thuận <span class="dot"></span> Miền Nam</div>
-              <h3 class="tour-card-name"><a href="tour-detail.html">Mũi Né — Đồi cát bay cực đẹp</a></h3>
-              <div class="tour-card-info">
-                <span><i class="fas fa-clock"></i> 2N1Đ</span>
-                <span><i class="fas fa-users"></i> Max 20</span>
-              </div>
-              <div class="tour-card-footer">
-                <div class="tour-price">1.950.000đ<small>/người</small></div>
-                <div class="tour-rating"><i class="fas fa-star star"></i> 4.5 (98)</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="tour-card">
-            <div class="tour-card-img">
-              <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=500&q=75" alt="Hà Giang" loading="lazy" />
-              <div class="card-badge"><span class="badge badge-green">Trekking</span></div>
-              <div class="card-save"><i class="far fa-heart"></i></div>
-            </div>
-            <div class="tour-card-body">
-              <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Hà Giang <span class="dot"></span> Tây Bắc</div>
-              <h3 class="tour-card-name"><a href="tour-detail.html">Hà Giang — Cung đường đèo hùng vĩ nhất VN</a></h3>
-              <div class="tour-card-info">
-                <span><i class="fas fa-clock"></i> 4N3Đ</span>
-                <span><i class="fas fa-users"></i> Max 12</span>
-              </div>
-              <div class="tour-card-footer">
-                <div class="tour-price">4.500.000đ<small>/người</small></div>
-                <div class="tour-rating"><i class="fas fa-star star"></i> 5.0 (87)</div>
-              </div>
-            </div>
-          </div>
-
-        </div><!-- /tours-grid -->
-
-        <!-- Pagination -->
-        <div class="pagination">
-          <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
-          <button class="page-btn active">1</button>
-          <button class="page-btn">2</button>
-          <button class="page-btn">3</button>
-          <span style="padding:0 4px;color:var(--gray-400);">...</span>
-          <button class="page-btn">17</button>
-          <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
         </div>
+      </div>
 
-      </div><!-- /tours-main -->
-    </div><!-- /tours-layout -->
+      <!-- Tour: Sầm Sơn 3N2Đ -->
+      <div class="tour-card" data-region="mien-trung">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=500&q=75" alt="Biển Sầm Sơn" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển đảo</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Sầm Sơn, Thanh Hóa <span class="dot"></span> Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/sam-son-3n2d.html">Biển Sầm Sơn</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: Suối Cá Thần - Thành Nhà Hồ - Sầm Sơn -->
+      <div class="tour-card" data-region="mien-trung">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=500&q=75" alt="Suối Cá Thần - Sầm Sơn" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển &amp; Văn hóa</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Thanh Hóa <span class="dot"></span> Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/sam-son-suoi-ca-than-3n2d.html">Suối Cá Thần - Thành Nhà Hồ - Sầm Sơn</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: Ngã Ba Đồng Lộc - Thiên Cầm -->
+      <div class="tour-card" data-region="mien-trung">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=500&q=75" alt="Ngã Ba Đồng Lộc - Thiên Cầm" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-orange">Lịch sử &amp; Biển</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Hà Tĩnh <span class="dot"></span> Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/dong-loc-thien-cam-3n2d.html">Ngã Ba Đồng Lộc - Biển Thiên Cầm</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: Thiên Cầm - Vinpearl - Hồ Kẻ Gỗ -->
+      <div class="tour-card" data-region="mien-trung">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=500&q=75" alt="Thiên Cầm - Vinpearl" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Nghỉ dưỡng</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Hà Tĩnh <span class="dot"></span> Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/thien-cam-vinpearl-ho-ke-go-3n2d.html">Thiên Cầm - Vinpearl - Hồ Kẻ Gỗ</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 3N2Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: Quảng Bình - Quảng Trị -->
+      <div class="tour-card" data-region="mien-trung">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=500&q=75" alt="Quảng Bình - Quảng Trị" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-orange">Khám phá</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Quảng Bình, Quảng Trị <span class="dot"></span> Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/quang-binh-quang-tri-4n3d.html">Quảng Bình - Quảng Trị</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 4N3Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: Đà Nẵng - Huế - Quảng Bình -->
+      <div class="tour-card" data-region="mien-trung">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1555217851-6141535bd771?auto=format&fit=crop&w=500&q=75" alt="Đà Nẵng - Huế - Quảng Bình" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-orange">Khám phá</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Đà Nẵng, Huế, Quảng Bình <span class="dot"></span> Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/da-nang-hue-quang-binh-5n4d.html">Đà Nẵng - Huế - Quảng Bình</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 5N4Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: Phú Yên - Bình Định -->
+      <div class="tour-card" data-region="mien-trung">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=500&q=75" alt="Phú Yên - Bình Định" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển &amp; Khám phá</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Tuy Hòa, Quy Nhơn <span class="dot"></span> Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/tuy-hoa-quy-nhon-4n3d.html">Phú Yên - Bình Định</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 4N3Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: Nha Trang - Đà Lạt 4N3Đ -->
+      <div class="tour-card" data-region="mien-trung">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1562602833-0f4ab2fc46e3?auto=format&fit=crop&w=500&q=75" alt="Nha Trang - Đà Lạt" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển &amp; Núi</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Nha Trang, Đà Lạt <span class="dot"></span> Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/nha-trang-da-lat-4n3d.html">Nha Trang - Đà Lạt</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 4N3Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: Đà Lạt - Nha Trang 4N3Đ -->
+      <div class="tour-card" data-region="tay-nguyen">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=500&q=75" alt="Đà Lạt - Nha Trang" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-orange">Khám phá</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Đà Lạt, Nha Trang <span class="dot"></span> Tây Nguyên &amp; Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/da-lat-nha-trang-4n3d.html">Đà Lạt - Nha Trang</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 4N3Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: Đà Lạt - Nha Trang 5N4Đ -->
+      <div class="tour-card" data-region="tay-nguyen">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?auto=format&fit=crop&w=500&q=75" alt="Đà Lạt - Nha Trang" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-orange">Trọn vẹn</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> Đà Lạt, Nha Trang <span class="dot"></span> Tây Nguyên &amp; Miền Trung</div>
+          <h3 class="tour-card-name"><a href="tour/da-lat-nha-trang-5n4d.html">Đà Lạt - Nha Trang</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 5N4Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: TPHCM - Miền Tây - Củ Chi -->
+      <div class="tour-card" data-region="mien-nam">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=500&q=75" alt="TPHCM - Miền Tây - Củ Chi" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-orange">Khám phá</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> TP.HCM, Cần Thơ, Củ Chi <span class="dot"></span> Miền Nam</div>
+          <h3 class="tour-card-name"><a href="tour/tphcm-can-tho-cu-chi-5n4d.html">TPHCM - Miền Tây - Củ Chi</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 5N4Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: TPHCM - Vũng Tàu - Củ Chi -->
+      <div class="tour-card" data-region="mien-nam">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?auto=format&fit=crop&w=500&q=75" alt="TPHCM - Vũng Tàu - Củ Chi" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-green">Biển &amp; Lịch sử</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> TP.HCM, Vũng Tàu, Củ Chi <span class="dot"></span> Miền Nam</div>
+          <h3 class="tour-card-name"><a href="tour/tphcm-vung-tau-cu-chi-4n3d.html">TPHCM - Vũng Tàu - Củ Chi</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 4N3Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tour: TPHCM - Đại Nam - Cần Thơ - Hà Tiên -->
+      <div class="tour-card" data-region="mien-nam">
+        <div class="tour-card-img">
+          <img src="https://images.unsplash.com/photo-1583417319070-4a69db38a482?auto=format&fit=crop&w=500&q=75" alt="TPHCM - Đại Nam - Cần Thơ - Hà Tiên" loading="lazy" />
+          <div class="card-badge"><span class="badge badge-orange">Khám phá</span></div>
+        </div>
+        <div class="tour-card-body">
+          <div class="tour-card-meta"><i class="fas fa-map-marker-alt" style="color:var(--primary);"></i> TP.HCM, Cần Thơ, Hà Tiên, Châu Đốc <span class="dot"></span> Miền Nam</div>
+          <h3 class="tour-card-name"><a href="tour/tphcm-dai-nam-can-tho-ha-tien-5n4d.html">TPHCM - Đại Nam - Cần Thơ - Hà Tiên</a></h3>
+          <div class="tour-card-info">
+            <span><i class="fas fa-clock"></i> 5N4Đ</span>
+          </div>
+          <div class="tour-card-footer">
+            <div class="tour-price"><a href="contact.html" style="color:var(--primary);font-weight:600;">Liên hệ báo giá</a></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /tours-grid -->
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="background:var(--primary-bg);text-align:center;padding:48px 20px;">
+  <div class="container">
+    <h2 style="font-size:24px;font-weight:800;color:var(--gray-900);margin-bottom:12px;">Không tìm thấy tour phù hợp?</h2>
+    <p style="color:var(--gray-600);margin-bottom:24px;">Liên hệ với chúng tôi để được tư vấn và thiết kế lịch trình riêng theo yêu cầu của bạn.</p>
+    <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-phone"></i> Liên hệ tư vấn ngay</a>
   </div>
 </section>
 
@@ -398,8 +495,8 @@
         <h4>Tour du lịch</h4>
         <ul>
           <li><a href="tours.html">Tour trong nước</a></li>
-          <li><a href="tours.html?type=international">Tour nước ngoài</a></li>
-          <li><a href="tours.html?type=combo">Combo &amp; Khách sạn</a></li>
+          <li><a href="coming-soon.html">Tour nước ngoài</a></li>
+          <li><a href="coming-soon.html">Combo &amp; Khách sạn</a></li>
           <li><a href="departure.html">Lịch khởi hành</a></li>
         </ul>
       </div>
@@ -409,7 +506,6 @@
           <li><a href="about.html">Giới thiệu công ty</a></li>
           <li><a href="travel-guide.html">Cẩm nang du lịch</a></li>
           <li><a href="contact.html">Liên hệ</a></li>
-          <li><a href="#">Chính sách bảo mật</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -422,12 +518,29 @@
   </div>
   <div class="footer-bottom">
     <div class="container" style="display:flex;align-items:center;justify-content:space-between;width:100%;">
-      <span>© 2025 DN Travel. Tất cả quyền được bảo lưu.</span>
+      <span>&copy; 2025 DN Travel. Tất cả quyền được bảo lưu.</span>
       <span>Giấy phép số: 01-123/TCDL-GP</span>
     </div>
   </div>
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script>
+// Simple region filter
+document.querySelectorAll('.filter-tag').forEach(function(tag) {
+  tag.addEventListener('click', function() {
+    document.querySelectorAll('.filter-tag').forEach(function(t) { t.classList.remove('active'); });
+    this.classList.add('active');
+    var region = this.dataset.region;
+    document.querySelectorAll('.tour-card').forEach(function(card) {
+      if (region === 'all' || card.dataset.region === region) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+</script>
 </body>
 </html>
