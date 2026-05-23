@@ -4,10 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Giới thiệu — DN Travel</title>
-  <link rel="icon" type="image/x-icon" href="assets/images/logo.ico" />
-  <meta property="og:title" content="Giới thiệu — DN Travel" />
-  <meta property="og:description" content="15 năm đồng hành cùng triệu chuyến đi" />
-  <meta property="og:image" content="assets/images/logo.png" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -36,17 +32,17 @@
 <nav class="navbar" id="navbar">
   <div class="container navbar-inner">
     <a href="index.html" class="navbar-logo">
-      <div class="logo-icon"><img src="assets/images/logo.png" alt="DN Travel logo" /></div><div>
-      <span class="logo-text">DN <span>TRAVEL</span></span><div class="logo-sub">Khám phá những hành trình tuyệt vời</div></div>
+      <div class="logo-icon"><i class="fas fa-compass"></i></div>
+      <span class="logo-text">DN<span>Travel</span></span>
     </a>
     <ul class="navbar-nav">
       <li><a href="index.html" class="nav-link">Trang chủ</a></li>
       <li><a href="tours.html" class="nav-link">Tour trong nước</a></li>
-      <li><a href="coming-soon.html" class="nav-link">Tour nước ngoài</a></li>
-      <li><a href="coming-soon.html" class="nav-link">Combo &amp; KS</a></li>
+      <li><a href="tours.html?type=international" class="nav-link">Tour nước ngoài</a></li>
+      <li><a href="tours.html?type=combo" class="nav-link">Combo &amp; KS</a></li>
       <li><a href="about.html" class="nav-link active">Về chúng tôi</a></li>
     </ul>
-    <div class="navbar-cta"><a href="contact.html" class="btn btn-accent-outline btn-sm">Liên hệ ngay</a></div>
+    <div class="navbar-cta"><a href="contact.html" class="btn btn-primary btn-sm">Liên hệ ngay</a></div>
     <button class="navbar-toggle" aria-label="Mở menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -72,24 +68,24 @@
 <section class="section">
   <div class="container">
     <!-- Hero about -->
-    <div class="about-hero about-hero--split">
-      <div class="about-hero-text">
-        <h2>Hành trình của chúng tôi</h2>
-        <p>Từ năm 2010, DN Travel đã không ngừng nỗ lực mang đến những trải nghiệm du lịch chất lượng, an toàn và đáng nhớ cho hàng triệu du khách Việt Nam.</p>
-        <div class="stats-row">
-          <div class="stat-item"><h3>1.000+</h3><p>Khách hàng hài lòng</p></div>
-          <div class="stat-item"><h3>100+</h3><p>Tour chất lượng</p></div>
-          <div class="stat-item"><h3>15+</h3><p>Năm kinh nghiệm</p></div>
-          <div class="stat-item"><h3>50+</h3><p>Điểm đến</p></div>
+    <div class="about-hero">
+      <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1400&q=80" alt="DN Travel team" loading="lazy" />
+      <div class="about-hero-overlay">
+        <div class="about-hero-content">
+          <h2>Hành trình của chúng tôi</h2>
+          <p>Từ năm 2010, DN Travel đã không ngừng nỗ lực mang đến những trải nghiệm du lịch chất lượng, an toàn và đáng nhớ cho hàng triệu du khách Việt Nam.</p>
+          <div class="stats-row">
+            <div class="stat-item"><h3>10.000+</h3><p>Khách hàng hài lòng</p></div>
+            <div class="stat-item"><h3>300+</h3><p>Tour chất lượng</p></div>
+            <div class="stat-item"><h3>15+</h3><p>Năm kinh nghiệm</p></div>
+            <div class="stat-item"><h3>50+</h3><p>Điểm đến</p></div>
+          </div>
         </div>
-      </div>
-      <div class="about-hero-img">
-        <img src="assets/images/vechungtoi.jpg" alt="DN Travel team" loading="lazy" />
       </div>
     </div>
 
     <!-- About text -->
-    <div class="responsive-grid-2" style="gap:48px;margin-top:56px;align-items:center;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:56px;align-items:center;">
       <div>
         <span class="section-label">Câu chuyện của chúng tôi</span>
         <h2 class="section-title">Vì sao chọn DN Travel?</h2>
@@ -153,7 +149,7 @@
 <!-- HISTORY -->
 <section class="section">
   <div class="container">
-    <div class="responsive-grid-2" style="gap:60px;align-items:start;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;">
       <div>
         <span class="section-label">Lịch sử phát triển</span>
         <h2 class="section-title">Hành trình 15 năm xây dựng</h2>
@@ -187,8 +183,8 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-year">2025</div>
-            <h4>Hơn 1.000 khách hàng</h4>
-            <p>100+ tour, 50+ điểm đến, đội ngũ 200 nhân viên chuyên nghiệp.</p>
+            <h4>Hơn 10.000 khách hàng</h4>
+            <p>300+ tour, 50+ điểm đến, đội ngũ 200 nhân viên chuyên nghiệp.</p>
           </div>
         </div>
       </div>
@@ -235,22 +231,22 @@
     </div>
     <div class="team-grid">
       <div class="team-card">
-        <img src="https://i.pravatar.cc/120?img=32" alt="Nguyễn Quý Đông" loading="lazy" />
+        <img src="https://i.pravatar.cc/120?img=32" alt="Nguyễn Đình Hùng" loading="lazy" />
         <h4>Nguyễn Quý Đông</h4>
         <p>CEO &amp; Nhà sáng lập</p>
       </div>
       <div class="team-card">
-        <img src="https://i.pravatar.cc/120?img=25" alt="Nguyễn Thu Trang" loading="lazy" />
+        <img src="https://i.pravatar.cc/120?img=25" alt="Trần Thị Minh" loading="lazy" />
         <h4>Nguyễn Thu Trang</h4>
         <p>Trưởng phòng Marketing</p>
       </div>
       <div class="team-card">
-        <img src="https://i.pravatar.cc/120?img=53" alt="Nguyễn Trung Đức Dũng" loading="lazy" />
+        <img src="https://i.pravatar.cc/120?img=53" alt="Lê Văn Sơn" loading="lazy" />
         <h4>Nguyễn Trung Đức Dũng</h4>
         <p>Trưởng phòng CNTT</p>
       </div>
       <div class="team-card">
-        <img src="https://i.pravatar.cc/120?img=44" alt="Nguyễn Thị Kim Ngân" loading="lazy" />
+        <img src="https://i.pravatar.cc/120?img=44" alt="Phạm Thu Lan" loading="lazy" />
         <h4>Nguyễn Thị Kim Ngân</h4>
         <p>Trưởng phòng CSKH</p>
       </div>
@@ -276,17 +272,12 @@
 </section>
 
 <footer class="footer">
-  <div class="footer-wave">
-    <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,48 L0,48 Z" fill="#1B4332"/>
-    </svg>
-  </div>
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand"><div class="logo-text">DN <span>TRAVEL</span></div><p>DN Travel — Hành trình trọn vẹn, kỷ niệm đáng nhớ.</p><div class="footer-socials"><a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-youtube"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-tiktok"></i></a></div></div>
-      <div class="footer-col"><h4>Tour du lịch</h4><ul><li><a href="tours.html">Tour trong nước</a></li><li><a href="coming-soon.html">Tour nước ngoài</a></li><li><a href="departure.html">Lịch khởi hành</a></li></ul></div>
+      <div class="footer-brand"><div class="logo-text">DN<span>Travel</span></div><p>DN Travel — Hành trình trọn vẹn, kỷ niệm đáng nhớ.</p><div class="footer-socials"><a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-youtube"></i></a><a href="#" class="footer-social-btn"><i class="fab fa-tiktok"></i></a></div></div>
+      <div class="footer-col"><h4>Tour du lịch</h4><ul><li><a href="tours.html">Tour trong nước</a></li><li><a href="tours.html?type=international">Tour nước ngoài</a></li><li><a href="departure.html">Lịch khởi hành</a></li></ul></div>
       <div class="footer-col"><h4>Về DN Travel</h4><ul><li><a href="about.html">Giới thiệu</a></li><li><a href="travel-guide.html">Cẩm nang</a></li><li><a href="contact.html">Liên hệ</a></li></ul></div>
-      <div class="footer-col"><h4>Liên hệ</h4><div class="footer-contact-item"><i class="fas fa-map-marker-alt ico"></i><span>Chợ Dòng, Khu 4, Xuân Lũng, Phú Thọ</span></div><div class="footer-contact-item"><i class="fas fa-phone ico"></i><span>+84 982 557 559</span></div><div class="footer-contact-item"><i class="fas fa-envelope ico"></i><span>info@dntravel.vn</span></div></div>
+      <div class="footer-col"><h4>Liên hệ</h4><div class="footer-contact-item"><i class="fas fa-map-marker-alt ico"></i><span>123 Trần Hưng Đạo, Q.1, TP.HCM</span></div><div class="footer-contact-item"><i class="fas fa-phone ico"></i><span>1900 1234</span></div><div class="footer-contact-item"><i class="fas fa-envelope ico"></i><span>info@d9travel.vn</span></div></div>
     </div>
   </div>
   <div class="footer-bottom"><div class="container" style="display:flex;width:100%;justify-content:space-between;"><span>© 2025 DN Travel. Tất cả quyền được bảo lưu.</span><span>Giấy phép số: 01-123/TCDL-GP</span></div></div>
